@@ -4,11 +4,11 @@ Approximately 70 million people in the world are deaf mutes, according to the Wo
 Not to mention it may contribute to social ostracisation, because not everyone knows how to interpret sign language. To combat this, we want to create a device that will allow those who are deaf mutes to communicate with those who may not understand ASL, American Sign Language.
 
 <h2>Features</h2>
-- Real-time ASL recognition
-- Translation to text or speech
-- User-friendly interface for both deaf/mute and hearing individuals
-- Portable and accessible hardware design
-- Future integration with ISL as well.
+- Real-time ASL recognition <br>
+- Translation to text or speech <br>
+- User-friendly interface for both deaf/mute and hearing individuals <br>
+- Portable and accessible hardware design <br>
+- Future integration with ISL as well. <br>
 
 <h2>Contribution Guidelines</h2>
 The codebase can be forked <em>for contribution only</em>. Please do not copy the project or its contents for unrelated use.  
