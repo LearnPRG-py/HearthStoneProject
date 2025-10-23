@@ -11,6 +11,11 @@ Not to mention it may contribute to social ostracisation, because not everyone k
 - Future integration with ISL as well. <br>
 
 <h2>Contribution Guidelines</h2>
+<h3>
+🚧 This is a **school project** under active development by Oakridge Students.
+We’re not accepting external contributions right now 🙂. However, we may do so in the near future.
+</h3>
+
 The codebase can be forked <b>for contribution only</b>. Please do not copy the project or its contents for unrelated use.  
 
 If you wish to contribute, follow the standard process of forking the repository and submitting a PR. Troll Issues or PRs would not be appreciated.
