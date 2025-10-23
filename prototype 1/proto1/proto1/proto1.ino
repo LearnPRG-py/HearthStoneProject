@@ -22,12 +22,6 @@ int calcFingers() {
     if (currentReading - initReadings[i] > 10){
       scores[i] = 1;
     }
-    if (currentReading - initReadings[i] > 5) {
-      scores[i] = 0.5;
-    }
-    if (currentReading - initReadings[i] > 10){
-      scores[i] = 1;
-    }
   }
 } 
 
