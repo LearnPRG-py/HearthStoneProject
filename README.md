@@ -12,7 +12,7 @@ Not to mention it may contribute to social ostracisation, because not everyone k
 
 <h2>Contribution Guidelines</h2>
 <h3>
-🚧 This is a **school project** under active development by Oakridge Students.
+🚧 This is a <b>school project</b> under active development by Oakridge Students.
 We’re not accepting external contributions right now 🙂. However, we may do so in the near future.
 </h3>
 
