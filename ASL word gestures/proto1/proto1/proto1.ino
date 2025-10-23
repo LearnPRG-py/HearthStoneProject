@@ -36,5 +36,5 @@ int orientation(){
 }
 
 void loop() {
-  calcFingers();
+  // calcFingers();
 }
