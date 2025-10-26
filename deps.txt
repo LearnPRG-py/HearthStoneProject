@@ -1,1 +1,3 @@
 # Add all Python library dependencies here
+mediapipe
+opencv-python
