@@ -10,8 +10,7 @@ void setup() {
 
 int calcFingers() {
    for (int i = 0; i < 5; i++) {
-    int currentReading = analogRead(pins[i]);
-    scores[i] = (min(floor((currentReading - initReadings[i])/5), 2))/2;
+    scores[i] = (min(floor((analogRead(pins[i]) - initReadings[i])/5), 2))/2;
   }
 } 
 
