@@ -29,7 +29,10 @@ jobs:
     # Run all Python files
       - name: Run all Python files
         run: |
-            find . -name "*.py" -type f -print0 | while IFS= read -r -d '' f; do
-                echo "Running $f"
-                python "$f" || exit 1
-            done
+          find . -name "*.py" -type f -print0 | while IFS= read -r -d '' f; do
+              echo "Running $f"
+              dir=$(dirname "$f")
+              cd "$dir"
+              python "$(basename "$f")" || exit 1
+              cd - > /dev/null
+          done
