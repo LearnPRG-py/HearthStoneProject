@@ -9,14 +9,14 @@ class_names = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 
 mp_hands = mp.solutions.hands
 mp_drawing = mp.solutions.drawing_utils
 
-cap = cv2.VideoCapture(0)
+cam = cv2.VideoCapture(0)
 
 with mp_hands.Hands(static_image_mode=False,
                     max_num_hands=1,
                     min_detection_confidence=0.7,
                     min_tracking_confidence=0.7) as hands:
-    while cap.isOpened():
-        ret, frame = cap.read()
+    while cam.isOpened():
+        ret, frame = cam.read()
         if not ret:
             break
         image = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
@@ -47,5 +47,5 @@ with mp_hands.Hands(static_image_mode=False,
         if cv2.waitKey(5) & 0xFF == 27:
             break
 
-cap.release()
+cam.release()
 cv2.destroyAllWindows()
