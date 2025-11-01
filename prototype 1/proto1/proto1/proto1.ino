@@ -62,6 +62,7 @@ char matchLetter() {
 }
 
 void loop() {
+  calcFingers();
   char letter = matchLetter();
   Serial.print("Detected: ");
   Serial.println(letter);
