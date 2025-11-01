@@ -32,6 +32,13 @@ float aslLetters[26][5] = {
   {0, 0, 0, 0, 0.5}   // Z (scribble motion but treat as mostly straight)
 };
 
+/**
+ * @brief Initialize serial communication and capture calibration baselines for the five sensors.
+ *
+ * Initializes the serial port at 9600 baud, reads the current analog value from each sensor pin
+ * into the global `initReadings` array to establish calibration baselines, and prints "Calibrated."
+ * to indicate completion.
+ */
 void setup() {
   Serial.begin(9600);
   for (int i = 0; i < 5; i++)
@@ -39,12 +46,32 @@ void setup() {
   Serial.println("Calibrated.");
 }
 
+/**
+ * @brief Update global finger posture scores from sensor readings.
+ *
+ * Reads each finger sensor, compares it to the calibrated baseline, and updates
+ * the global `scores` array with the normalized posture for each finger.
+ *
+ * @details
+ * Each score is normalized to one of the expected posture levels (typically
+ * 0, 0.5, or 1) and stored in `scores[i]` for the corresponding finger.
+ * Calibration baselines are taken from `initReadings`.
+ */
 void calcFingers() {
   for (int i = 0; i < 5; i++) {
     scores[i] = min(floor((analogRead(pins[i]) - initReadings[i]) / 5), 2) / 2.0;
   }
 }
 
+/**
+ * @brief Selects the ASL letter whose template best matches the current finger scores.
+ *
+ * Compares the global `scores` (five finger posture values) against each row of the global
+ * `aslLetters` template matrix and chooses the letter with the smallest sum of absolute
+ * differences across the five fingers.
+ *
+ * @return char Uppercase letter 'A'–'Z' corresponding to the best-matching template.
+ */
 char matchLetter() {
   float minError = 9999;
   int best = -1;
@@ -61,6 +88,11 @@ char matchLetter() {
   return letters[best];
 }
 
+/**
+ * @brief Update sensor-derived finger scores, determine the best-matching ASL letter, and output it over Serial.
+ *
+ * Calls calcFingers() to refresh the global finger scores, uses matchLetter() to select the closest alphabet letter based on those scores, prints "Detected: <Letter>" to Serial, and delays 300 ms before the next iteration.
+ */
 void loop() {
   calcFingers();
   char letter = matchLetter();
