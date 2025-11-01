@@ -41,7 +41,7 @@ void setup() {
 
 void calcFingers() {
   for (int i = 0; i < 5; i++) {
-    scores[i] = min(floor((analogRead(pins[i]) - initReadings[i]) / 5), 2) / 2.0;
+    scores[i] = constrain(floor((analogRead(pins[i]) - initReadings[i]) / 5),0, 2) / 2.0;
   }
 }
 
