@@ -18,8 +18,7 @@ model = tf.keras.models.load_model(
     os.path.join(
         BASE_DIR,
         "../AI_model_and_Prediction/hearthstone_fingerspelling_AI"
-        + ("_firstperson" if first_person else "_thirdperson")
-        + ".keras",
+        + ("_firstperson.keras" if first_person else "_thirdperson.h5"),
     )
 )
 
