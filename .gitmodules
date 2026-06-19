@@ -1,0 +1,3 @@
+[submodule "prototype_3/HearthstoneCAD"]
+	path = prototype_3/HearthstoneCAD
+	url = https://github.com/LearnPRG-py/HearthstoneCAD.git
