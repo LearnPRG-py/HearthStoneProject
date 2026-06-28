@@ -1,435 +1,376 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Home - Project Hearthstone</title>
-    <link rel="stylesheet" href="styles.css" />
-    <link rel="stylesheet" href="Navbar/styles.css" />
-  </head>
-  <body>
-    <div id="navbarcontainer"></div>
-    <script src="Common/script.js"></script>
-    <script type="module" src="Navbar/script.js"></script>
-
-    <header class="hero">
-      <div class="hero-bg">
-        <img src="hero-sect.png" alt="" class="hero-img" aria-hidden="true" />
-        <div class="hero-overlay"></div>
-      </div>
-      <div class="hero-content">
-        <span class="hero-eyebrow">ASL · Communication · Accessibility</span>
-        <h1 class="hero-title">
-          <span class="hero-word">Project</span>
-          <span class="hero-word hero-word--accent">Hearthstone</span>
-        </h1>
-        <p class="hero-sub">Because Communication Is a Right, Not a Privilege.</p>
-        <div class="hero-actions">
-          <a href="#exigency" class="btn-primary">Learn More</a>
-          <a href="asl-learning-course" class="btn-ghost">Try ASL Course →</a>
-        </div>
-      </div>
-      <div class="hero-scroll-hint" aria-hidden="true"></div>
-    </header>
-
-    <section class="section exigency" id="exigency">
-      <div class="exigency-inner">
-        <div class="exigency-header">
-          <p class="section-label eq-label">The Problem</p>
-          <h2 class="exigency-headline">
-            <span class="headline-line">
-              <span class="headline-line-inner" style="transition-delay: 0.08s">
-                What if your <em>voice</em>
-              </span>
-            </span>
-            <span class="headline-line">
-              <span class="headline-line-inner" style="transition-delay: 0.22s">
-                could not be heard?
-              </span>
-            </span>
-          </h2>
-          <p class="exigency-intro">
-            Communication is a basic human need — yet every day, millions of people struggle to be
-            heard. Not because they have nothing to say, but because society cannot understand their
-            language.
-          </p>
-        </div>
-
-        <div class="stat-bars">
-          <div class="stat-bar" style="--bar-delay: 0s">
-            <span class="stat-bar-num">
-              <span class="stat-number" data-target="70">0</span>M+
-            </span>
-            <div class="stat-bar-track">
-              <div class="stat-bar-fill stat-bar-fill--1" data-width="93"></div>
-            </div>
-            <span class="stat-bar-label">Deaf &amp; non-verbal individuals worldwide</span>
-          </div>
-          <div class="stat-bar" style="--bar-delay: 0.13s">
-            <span class="stat-bar-num">
-              <span class="stat-number" data-target="300">0</span>+
-            </span>
-            <div class="stat-bar-track">
-              <div class="stat-bar-fill stat-bar-fill--2" data-width="72"></div>
-            </div>
-            <span class="stat-bar-label">Distinct sign languages globally</span>
-          </div>
-          <div class="stat-bar" style="--bar-delay: 0.26s">
-            <span class="stat-bar-num">1 in 5</span>
-            <div class="stat-bar-track">
-              <div class="stat-bar-fill stat-bar-fill--3" data-width="50"></div>
-            </div>
-            <span class="stat-bar-label">People will experience disability in their lifetime</span>
-          </div>
-        </div>
-
-        <div class="exigency-footer">
-          <p class="reveal-item">
-            There are nearly
-            <a class="link" href="https://www.un.org/en/observances/sign-languages-day">
-              70 million deaf and non-verbal individuals worldwide</a
-            >. In emergencies, classrooms, hospitals, and public spaces, communication barriers can
-            become dangerous and socially ostracizing.
-          </p>
-          <p class="reveal-item" style="--delay: 0.1s">
-            <strong>Silence should never mean invisibility.</strong> That is why
-            <strong>Project Hearthstone</strong> exists.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <section class="section about" id="about">
-      <div class="about-band" aria-hidden="true"></div>
-      <div class="section-inner">
-        <div class="about-grid">
-          <div class="about-text">
-            <p class="section-label slide-in-left">About Us</p>
-            <div class="about-bar slide-in-left" style="--delay: 0.06s"></div>
-            <h2 class="slide-in-left" style="--delay: 0.1s">
-              What is<br />Project <em>Hearthstone?</em>
-            </h2>
-            <p class="slide-in-left" style="--delay: 0.16s">
-              Project Hearthstone is a student-led initiative building technology that bridges the
-              gap between the hearing and the deaf community. We believe that access to communication
-              tools should be universal—not a privilege.
-            </p>
-            <p class="slide-in-left" style="--delay: 0.22s">
-              Through AI-powered sign language recognition, interactive learning tools, and
-              accessible product design, we are working to make the world more inclusive one
-              interaction at a time.
-            </p>
-            <a href="about.html" class="text-link slide-in-left" style="--delay: 0.28s"
-              >Meet our full story →</a
-            >
-          </div>
-          <div class="about-visual slide-in-right">
-            <div class="about-visual-card">
-              <div class="avc-pill avc-pill--1">🤝 Inclusive Design</div>
-              <div class="avc-pill avc-pill--2">🤖 AI-Powered</div>
-              <div class="avc-pill avc-pill--3">📚 Education-First</div>
-              <div class="avc-pill avc-pill--4">♿ Accessible</div>
-              <div class="avc-center">
-                <div class="avc-logo-ring">
-                  <span>HS</span>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Home - Project Hearthstone</title>
+        <link rel="stylesheet" href="styles.css" />
+        <link rel="stylesheet" href="Navbar/styles.css" />
+        <link rel="stylesheet" href="Footer/styles.css" />
+        <link rel="icon" type="image/x-icon" href="/favicon-package/favicon.ico">
+        <link rel="preload" as="image" href="images/homepage/hero-sect.png" />
+        <link rel="preload" as="image" href="images/homepage/sresht.jpg" />
+        <link rel="preload" as="image" href="images/homepage/myra.jpg" />
+        <link rel="preload" as="image" href="images/homepage/aryan.jpg" />
+        <link rel="preload" as="image" href="images/homepage/vision.jpg" />
+        <link rel="preload" as="image" href="images/homepage/mission.jpg" />
+        <link rel="preload" as="image" href="images/homepage/hearthstone-pi.jpg" />
+        <link rel="preload" as="image" href="images/homepage/asl-course.jpg" />
+        <link rel="preload" as="image" href="images/homepage/hearthstone-ai.jpg" />
+    </head>
+    <body>
+        <div id="hs-loader" aria-live="polite" aria-label="Loading Project Hearthstone">
+            <div class="hs-loader-orb hs-loader-orb--1"></div>
+            <div class="hs-loader-orb hs-loader-orb--2"></div>
+            <div class="hs-loader-logo">HS</div>
+            <div class="hs-loader-bar-wrap">
+                <div class="hs-loader-track">
+                    <div class="hs-loader-fill" id="hs-loader-fill"></div>
                 </div>
-              </div>
-              <div class="asl-art-label">[ Art &amp; Design: Team photo or illustration ]</div>
+                <span class="hs-loader-label">Loading</span>
             </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section mission" id="mission">
-      <div class="section-inner">
-        <p class="section-label reveal-item">Our Purpose</p>
-        <div class="mv-row reveal-group">
-          <div class="mv-numeral reveal-item">01</div>
-          <div class="mv-content reveal-item" style="--delay: 0.1s">
-            <h3>Mission</h3>
-            <p>
-              To empower deaf, hard-of-hearing, and non-verbal individuals by creating accessible,
-              affordable, and intuitive communication technology—bridging the gap between those who
-              sign and those who don't.
-            </p>
-          </div>
-          <div class="mv-callout reveal-item" style="--delay: 0.2s">
-            <svg class="mv-icon" viewBox="0 0 48 48" fill="none" aria-hidden="true">
-              <circle
-                cx="24"
-                cy="24"
-                r="22"
-                stroke="var(--mid)"
-                stroke-width="1.5"
-                stroke-dasharray="4 3"
-              />
-              <path
-                d="M24 38C14 32 10 24 13 16C15 10 19 7 24 7C24 7 21 14 24 18C27 22 32 20 32 16C35 22 34 30 24 38Z"
-                fill="rgba(0,82,212,0.12)"
-                stroke="var(--mid)"
-                stroke-width="1.5"
-              />
-            </svg>
-            <blockquote>"Technology should remove barriers, not create them."</blockquote>
-          </div>
-        </div>
-        <div class="mv-divider" aria-hidden="true"></div>
-        <div class="mv-row mv-row--flip reveal-group">
-          <div class="mv-numeral reveal-item">02</div>
-          <div class="mv-content reveal-item" style="--delay: 0.1s">
-            <h3>Vision</h3>
-            <p>
-              A world where communication barriers no longer define a person's opportunities. Where
-              technology seamlessly translates intent across languages—verbal, signed, or
-              otherwise—in real time.
-            </p>
-          </div>
-          <div class="mv-callout reveal-item" style="--delay: 0.2s">
-            <svg class="mv-icon" viewBox="0 0 48 48" fill="none" aria-hidden="true">
-              <ellipse
-                cx="24"
-                cy="24"
-                rx="18"
-                ry="11"
-                stroke="var(--highlight)"
-                stroke-width="1.5"
-              />
-              <circle
-                cx="24"
-                cy="24"
-                r="5"
-                fill="rgba(0,212,255,0.15)"
-                stroke="var(--highlight)"
-                stroke-width="1.5"
-              />
-              <circle cx="24" cy="24" r="2" fill="var(--highlight)" />
-            </svg>
-            <blockquote>"Every person deserves to be understood, in any language."</blockquote>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section products" id="products">
-      <div class="products-bg-blob" aria-hidden="true"></div>
-      <div class="section-inner">
-        <div class="products-header reveal-group">
-          <div>
-            <p class="section-label reveal-item">What We Build</p>
-            <h2 class="reveal-item">Our Products</h2>
-          </div>
-          <a href="products.html" class="btn-outline reveal-item">View All →</a>
-        </div>
-        <div class="bento-grid">
-          <div class="bento-card bento-card--featured reveal-item">
-            <div class="bento-img bento-img--blue">
-              <span class="bento-img-label">[ SignBridge Demo ]</span>
-              <svg
-                class="bento-wave"
-                viewBox="0 0 400 120"
-                preserveAspectRatio="none"
-                aria-hidden="true"
-              >
-                <path
-                  d="M0 60 Q100 20 200 60 Q300 100 400 60 L400 120 L0 120Z"
-                  fill="rgba(0,82,212,0.12)"
-                />
-                <path
-                  d="M0 70 Q100 30 200 70 Q300 110 400 70 L400 120 L0 120Z"
-                  fill="rgba(0,82,212,0.08)"
-                />
-              </svg>
-            </div>
-            <div class="bento-body">
-              <span class="bento-tag bento-tag--blue">Sign Language Recognition</span>
-              <h3>SignBridge</h3>
-              <p>
-                Real-time ASL-to-text translation using computer vision and machine learning.
-                Designed for everyday conversations in classrooms, clinics, and public spaces.
-              </p>
-              <a href="products.html" class="bento-link">Explore SignBridge →</a>
-            </div>
-          </div>
-          <div class="bento-card reveal-item" style="--delay: 0.14s">
-            <div class="bento-img bento-img--purple">
-              <span class="bento-img-label">[ Course Preview ]</span>
-            </div>
-            <div class="bento-body">
-              <span class="bento-tag bento-tag--purple">Education</span>
-              <h3>ASL Learning Course</h3>
-              <p>
-                An interactive, self-paced course teaching American Sign Language to hearing
-                individuals.
-              </p>
-              <a href="asl-learning-course" class="bento-link">Start Learning →</a>
-            </div>
-          </div>
-          <div class="bento-card reveal-item" style="--delay: 0.26s">
-            <div class="bento-img bento-img--coral">
-              <span class="bento-img-label">[ Hub Dashboard ]</span>
-            </div>
-            <div class="bento-body">
-              <span class="bento-tag bento-tag--coral">Accessibility Tools</span>
-              <h3>Hearthstone Hub</h3>
-              <p>A unified dashboard bringing together our tools, resources, and community.</p>
-              <a href="products.html" class="bento-link">Open Hub →</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section updates-section">
-      <div class="section-inner">
-        <div class="updates-header reveal-group">
-          <div>
-            <p class="section-label reveal-item">What We're Working On</p>
-            <h2 class="reveal-item">Latest Updates</h2>
-          </div>
-        </div>
-      </div>
-      <script src="script.js"></script>
-      <div id="updates-section" class="updates-light">
-        <div class="updates-viewport">
-          <button class="nav-btn left" aria-label="Scroll left">&lt;</button>
-          <div class="updates-mask">
-            <div class="updates-track" id="updates-track" role="list"></div>
-          </div>
-          <button class="nav-btn right" aria-label="Scroll right">&gt;</button>
-        </div>
-      </div>
-    </section>
-
-    <section class="section team" id="team">
-      <div class="team-bg-noise" aria-hidden="true"></div>
-      <div class="team-orb team-orb--1" aria-hidden="true"></div>
-      <div class="team-orb team-orb--2" aria-hidden="true"></div>
-      <div class="team-orb team-orb--3" aria-hidden="true"></div>
-      <div class="section-inner">
-        <div class="team-header reveal-group">
-          <div>
-            <p class="section-label reveal-item">The People Behind It</p>
-            <h2 class="reveal-item">Our <em>Founders</em></h2>
-          </div>
-          <a href="about.html" class="btn-outline-light reveal-item">Meet Everyone →</a>
         </div>
 
-        <div class="founders-grid">
-          <div class="founder-card founder-card--blue">
-            <div class="founder-photo">
-              <img src="founders/founder-1.jpg" alt="Co-founder & CEO" />
-              <div class="founder-photo-overlay"></div>
-              <div class="founder-photo-placeholder" aria-hidden="true">
-                <span>Photo</span>
-              </div>
-            </div>
-            <div class="founder-accent-line"></div>
-            <div class="founder-body">
-              <div class="founder-meta-row">
-                <span class="founder-index-num">01</span>
-                <span class="founder-role-badge founder-role-badge--blue"
-                  >Co-founder &amp; CEO</span
-                >
-              </div>
-              <p class="founder-name">Sresht Thiyagashankar</p>
-              <p class="founder-desc">
-                Sresht Thiyagashankar is a student that is driven by a love for technology,
-                robotics, and building things that can make a difference in our world. From
-                hackathons to engineering projects, he enjoys turning ideas into real systems, not
-                only to develop innovative ideas but to solve real social problems.
-              </p>
-              <div class="founder-tags">
-                <span class="founder-tag founder-tag--blue">Robotics</span>
-                <span class="founder-tag founder-tag--blue">Technology</span>
-                <span class="founder-tag founder-tag--blue">Impact</span>
-              </div>
-            </div>
-          </div>
+        <div id="navbarcontainer"></div>
+        <script src="Common/script.js"></script>
+        <script type="module" src="Navbar/script.js"></script>
+        <script type="module" src="Footer/script.js"></script>
 
-          <div class="founder-card founder-card--purple">
-            <div class="founder-photo">
-              <img src="founders/founder-2.jpg" alt="Co-founder & CTO" />
-              <div class="founder-photo-overlay"></div>
-              <div class="founder-photo-placeholder" aria-hidden="true">
-                <span>Photo</span>
-              </div>
+        <header class="hero">
+            <div class="hero-bg">
+                <img src="images/homepage/hero-sect.png" alt="" class="hero-img" aria-hidden="true" />
+                <div class="hero-overlay"></div>
             </div>
-            <div class="founder-accent-line"></div>
-            <div class="founder-body">
-              <div class="founder-meta-row">
-                <span class="founder-index-num">02</span>
-                <span class="founder-role-badge founder-role-badge--purple"
-                  >Co-founder &amp; CTO</span
-                >
-              </div>
-              <p class="founder-name">Myra Kulkarni</p>
-              <p class="founder-desc">
-                Myra Kulkarni is a high school junior who is passionate about making the world a
-                better place through the application of biology in technology, avid reader, and
-                design student that loves creating innovative solutions to environmental and social
-                issues.
-              </p>
-              <div class="founder-tags">
-                <span class="founder-tag founder-tag--purple">AI / ML</span>
-                <span class="founder-tag founder-tag--purple">Computer Vision</span>
-                <span class="founder-tag founder-tag--purple">Engineering</span>
-              </div>
+            <div class="hero-content">
+                <span class="hero-eyebrow">ASL · Communication · Accessibility</span>
+                <h1 class="hero-title">
+                    <span class="hero-word">Project</span>
+                    <span class="hero-word hero-word--accent">Hearthstone</span>
+                </h1>
+                <p class="hero-sub">Bridging the ever expanding rift between communicators</p>
+                <div class="hero-actions">
+                    <a href="#exigency" class="btn-primary">Learn More</a>
+                    <a href="asl-learning-course" class="btn-ghost">Try ASL Course →</a>
+                </div>
             </div>
-          </div>
+            <div class="hero-scroll-hint" aria-hidden="true"></div>
+        </header>
 
-          <div class="founder-card founder-card--coral">
-            <div class="founder-photo">
-              <img src="founders/founder-3.jpg" alt="Co-founder & Head of Design" />
-              <div class="founder-photo-overlay"></div>
-              <div class="founder-photo-placeholder" aria-hidden="true">
-                <span>Photo</span>
-              </div>
+        <section class="section exigency" id="exigency">
+            <div class="exigency-inner">
+                <div class="exigency-header">
+                    <p class="section-label eq-label">The Problem</p>
+                    <h2 class="exigency-headline">
+                        <span class="headline-line">
+                            <span class="headline-line-inner" style="transition-delay: 0.08s">
+                                What if your <em>voice</em>
+                            </span>
+                        </span>
+                        <span class="headline-line">
+                            <span class="headline-line-inner" style="transition-delay: 0.22s">
+                                could not be heard?
+                            </span>
+                        </span>
+                    </h2>
+                    <p class="exigency-intro">
+                        Communication is a ubiquitous basic human right that difference in format and syntax rather than spirit and meaning.
+                    </p>
+                </div>
+
+                <div class="stat-bars">
+                    <div class="stat-bar" style="--bar-delay: 0s">
+                        <span class="stat-bar-label-left">Deaf people not in the workforce</span>
+                        <div class="stat-bar-track">
+                            <div class="stat-bar-fill stat-bar-fill--1" data-width="43"></div>
+                        </div>
+                        <span class="stat-bar-pct">43%</span>
+                    </div>
+                    <div class="stat-bar" style="--bar-delay: 0.13s">
+                        <span class="stat-bar-label-left">Sign language users facing negative attitudes at work</span>
+                        <div class="stat-bar-track">
+                            <div class="stat-bar-fill stat-bar-fill--2" data-width="49"></div>
+                        </div>
+                        <span class="stat-bar-pct">49%</span>
+                    </div>
+                    <div class="stat-bar" style="--bar-delay: 0.26s">
+                        <span class="stat-bar-label-left">Deaf students earning less than hearing peers</span>
+                        <div class="stat-bar-track">
+                            <div class="stat-bar-fill stat-bar-fill--3" data-width="86"></div>
+                        </div>
+                        <span class="stat-bar-pct">86%</span>
+                    </div>
+                    <div class="stat-bar" style="--bar-delay: 0.39s">
+                        <span class="stat-bar-label-left">Deaf individuals with depression or anxiety</span>
+                        <div class="stat-bar-track">
+                            <div class="stat-bar-fill stat-bar-fill--4" data-width="34"></div>
+                        </div>
+                        <span class="stat-bar-pct">34%</span>
+                    </div>
+                </div>
+
+                <div class="exigency-footer">
+                    <p class="reveal-item">
+                        There are nearly
+                        <a class="link" href="https://www.un.org/en/observances/sign-languages-day">
+                            70 million deaf and non-verbal individuals worldwide</a
+                        >. In emergencies, classrooms, hospitals, and public spaces, communication barriers can
+                        become dangerous and socially ostracizing.
+                    </p>
+                    <p class="reveal-item" style="--delay: 0.1s">
+                        <strong>Silence should never mean invisibility.</strong> That is why
+                        <strong>Project Hearthstone</strong> exists.
+                    </p>
+                </div>
             </div>
-            <div class="founder-accent-line"></div>
-            <div class="founder-body">
-              <div class="founder-meta-row">
-                <span class="founder-index-num">03</span>
-                <span class="founder-role-badge founder-role-badge--coral"
-                  >Co-founder &amp; Head of Design</span
-                >
-              </div>
-              <p class="founder-name">Aryan Krishnan</p>
-              <p class="founder-desc">
-                Aryan Krishnan is a student who is passionate about software and utilizing
-                technology to create a positive impact. He enjoys working on a combination of novel
-                ideas and real-world systems through the loop of learning from perseverance.
-              </p>
-              <div class="founder-tags">
-                <span class="founder-tag founder-tag--coral">UX Design</span>
-                <span class="founder-tag founder-tag--coral">Education</span>
-                <span class="founder-tag founder-tag--coral">Research</span>
-              </div>
+        </section>
+
+        <section class="section about" id="about">
+            <div class="about-band" aria-hidden="true"></div>
+            <div class="section-inner">
+                <div class="about-grid">
+                    <div class="about-text">
+                        <p class="section-label slide-in-left">About Us</p>
+                        <div class="about-bar slide-in-left" style="--delay: 0.06s"></div>
+                        <h2 class="slide-in-left" style="--delay: 0.1s">
+                            What is<br />Project <em>Hearthstone?</em>
+                        </h2>
+                        <p class="slide-in-left" style="--delay: 0.16s">
+                            Project Hearthstone is a community and organization that we created to acknowledge one of the biggest communities in the world: the deaf community. 
+                        </p>
+                        <p class="slide-in-left" style="--delay: 0.22s">
+                            Specifically, we aim to not only spread awareness about the importance and art of sign language, but also to be able to bridge the gap between deaf culture and speakers.
+                        </p>
+                        <a href="/AboutUs/index.html" class="text-link slide-in-left" style="--delay: 0.28s"
+                            >Meet our full story →</a
+                        >
+                    </div>
+                    <div class="about-visual slide-in-right">
+                        <div class="about-visual-card">
+                            <div class="avc-img-wrap">
+                                <img src="images/homepage/what-is.jpg" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
-        </div>
-      </div>
-    </section>
+        </section>
 
-    <section class="section cta-banner" id="contact">
-      <div class="cta-pattern" aria-hidden="true"></div>
-      <div class="cta-inner reveal-group">
-        <p class="section-label reveal-item" style="color: var(--mid)">Join Us</p>
-        <h2 class="cta-headline reveal-item">
-          Ready to help break<br /><span class="cta-gradient-text">communication barriers?</span>
-        </h2>
-        <p class="reveal-item">Join our mission. Learn ASL, try our tools, or reach out to collaborate.</p>
-        <div class="cta-actions reveal-item" style="--delay: 0.1s">
-          <a href="asl-learning-course" class="btn-primary">Start Learning ASL</a>
-          <a href="contact.html" class="btn-outline">Get in Touch</a>
-        </div>
-      </div>
-    </section>
+        <section class="section mission" id="mission">
+            <div class="section-inner">
+                <p class="section-label reveal-item">Our Purpose</p>
+                <div class="mv-row reveal-group">
+                    <div class="mv-numeral reveal-item">01</div>
+                    <div class="mv-content reveal-item" style="--delay: 0.1s">
+                        <h3>Vision</h3>
+                        <p>
+                            To create a supportive and compassionate community built on action and impact for the underprivileged by spreading awareness about sign language, as well as to reduce communication barriers, promote inclusivity, and encourage everyday use of sign language.
+                        </p>
+                    </div>
+                    <div class="mv-image reveal-item" style="--delay: 0.2s">
+                        <img src="images/homepage/vision.jpg" alt="Our vision" loading="lazy" />
+                    </div>
+                </div>
+                <div class="mv-divider" aria-hidden="true"></div>
+                <div class="mv-row mv-row--flip reveal-group">
+                    <div class="mv-numeral reveal-item">02</div>
+                    <div class="mv-content reveal-item" style="--delay: 0.1s">
+                        <h3>Mission</h3>
+                        <p>
+                            To teach ASL to students across grades in an accessible way to help connect with hard-of-hearing individuals, and to develop technological solutions through smart innovation and planning, bridging the ever-expanding rift between those that can speak and those that cannot.
+                        </p>
+                    </div>
+                    <div class="mv-image reveal-item" style="--delay: 0.2s">
+                        <img src="images/homepage/mission.jpg" alt="Our mission" loading="lazy" />
+                    </div>
+                </div>
+            </div>
+        </section>
 
-    <footer class="site-footer">
-      <p>&copy; 2026 Project Hearthstone. All rights reserved.</p>
-    </footer>
+        <section class="section products" id="products">
+            <div class="products-bg-blob" aria-hidden="true"></div>
+            <div class="section-inner">
+                <div class="products-header reveal-group">
+                    <div>
+                        <p class="section-label reveal-item">What We Build</p>
+                        <h2 class="reveal-item">Our Products</h2>
+                    </div>
+                    <a href="products.html" class="btn-outline reveal-item">View All →</a>
+                </div>
+                <div class="bento-grid">
+                    <div class="bento-card bento-card--featured reveal-item">
+                        <div class="bento-img bento-img--blue">
+                            <img src="images/homepage/hearthstone-pi.jpg" alt="Hearthstone PI device" class="bento-img-photo" loading="lazy" />
+                        </div>
+                        <div class="bento-body">
+                            <span class="bento-tag bento-tag--blue">Sign Language Recognition</span>
+                            <h3>Hearthstone PI</h3>
+                            <p>
+                                Chestmounted Module designed ergonomically to fit into daily life. Utilizes Hearthstone AI to translate ASL gestures to speech 
+                            </p>
+                            <a href="products.html" class="bento-link">Explore SignBridge →</a>
+                        </div>
+                    </div>
+                    <div class="bento-card reveal-item" style="--delay: 0.14s">
+                        <div class="bento-img bento-img--purple">
+                            <img src="images/homepage/asl-course.jpg" alt="ASL Learning Course preview" class="bento-img-photo" loading="lazy" />
+                        </div>
+                        <div class="bento-body">
+                            <span class="bento-tag bento-tag--purple">Education</span>
+                            <h3>ASL Learning Course</h3>
+                            <p>
+                                An interactive course teaching American Sign Language to hearing
+                                individuals.
+                            </p>
+                            <a href="asl-learning-course" class="bento-link">Start Learning →</a>
+                        </div>
+                    </div>
+                    <div class="bento-card reveal-item" style="--delay: 0.26s">
+                        <div class="bento-img bento-img--coral">
+                            <img src="images/homepage/hearthstone-ai.jpg" alt="Hearthstone AI hub dashboard" class="bento-img-photo" loading="lazy" />
+                        </div>
+                        <div class="bento-body">
+                            <span class="bento-tag bento-tag--coral">Accessibility Tools</span>
+                            <h3>Hearthstone AI</h3>
+                            <p>An AI model that uses a custom pipeline to preprocess and analyze hand landmarks and determine handsigns and gestures performed accurately and efficiently.</p>
+                            <a href="products.html" class="bento-link">Open Hub →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-    <script src="script.js"></script>
-  </body>
+        <section class="section updates-section">
+            <div class="section-inner">
+                <div class="updates-header reveal-group">
+                    <div>
+                        <p class="section-label reveal-item">What We're Working On</p>
+                        <h2 class="reveal-item">Latest Updates</h2>
+                    </div>
+                </div>
+            </div>
+            <script src="script.js"></script>
+            <div id="updates-section" class="updates-light">
+                <div class="updates-viewport">
+                    <button class="nav-btn left" aria-label="Scroll left">&lt;</button>
+                    <div class="updates-mask">
+                        <div class="updates-track" id="updates-track" role="list"></div>
+                    </div>
+                    <button class="nav-btn right" aria-label="Scroll right">&gt;</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="section team" id="team">
+            <div class="team-bg-noise" aria-hidden="true"></div>
+            <div class="team-orb team-orb--1" aria-hidden="true"></div>
+            <div class="team-orb team-orb--2" aria-hidden="true"></div>
+            <div class="team-orb team-orb--3" aria-hidden="true"></div>
+            <div class="section-inner">
+                <div class="team-header reveal-group">
+                    <div>
+                        <p class="section-label reveal-item">The People Behind It</p>
+                        <h2 class="reveal-item">Our <em>Founders</em></h2>
+                    </div>
+                    <a href="about.html" class="btn-outline-light reveal-item">Meet Everyone →</a>
+                </div>
+
+                <div class="founders-grid">
+                    <div class="founder-card founder-card--blue">
+                        <div class="founder-photo">
+                            <img src="images/homepage/sresht.jpg" alt="Co-founder & CEO" />
+                            <div class="founder-photo-overlay"></div>
+                            <div class="founder-photo-placeholder" aria-hidden="true">
+                                <span>Photo</span>
+                            </div>
+                        </div>
+                        <div class="founder-accent-line"></div>
+                        <div class="founder-body">
+                            <div class="founder-meta-row">
+                                <span class="founder-index-num">01</span>
+                                <span class="founder-role-badge founder-role-badge--blue"
+                                    >Co-founder &amp; Original Ideator</span
+                                >
+                            </div>
+                            <p class="founder-name">Sresht Thiyagashankar</p>
+                            <p class="founder-desc">
+                                Sresht Thiyagashankar is a student that is driven by a love for technology,
+                                robotics, and building things that can make a difference in our world. From
+                                hackathons to engineering projects, he enjoys turning ideas into real systems, not
+                                only to develop innovative ideas but to solve real social problems.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="founder-card founder-card--purple">
+                        <div class="founder-photo">
+                            <img src="images/homepage/myra.jpg" alt="Co-founder & CTO" />
+                            <div class="founder-photo-overlay"></div>
+                            <div class="founder-photo-placeholder" aria-hidden="true">
+                                <span>Photo</span>
+                            </div>
+                        </div>
+                        <div class="founder-accent-line"></div>
+                        <div class="founder-body">
+                            <div class="founder-meta-row">
+                                <span class="founder-index-num">02</span>
+                                <span class="founder-role-badge founder-role-badge--purple"
+                                    >Co-founder &amp; Head of Marketing</span
+                                >
+                            </div>
+                            <p class="founder-name">Myra Kulkarni</p>
+                            <p class="founder-desc">
+                                Myra Kulkarni is a high school junior who is passionate about making the world a
+                                better place through the application of biology in technology, avid reader, and
+                                design student that loves creating innovative solutions to environmental and social
+                                issues.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="founder-card founder-card--coral">
+                        <div class="founder-photo">
+                            <img src="images/homepage/aryan.jpg" alt="Co-founder & Head of Design" />
+                            <div class="founder-photo-overlay"></div>
+                            <div class="founder-photo-placeholder" aria-hidden="true">
+                                <span>Photo</span>
+                            </div>
+                        </div>
+                        <div class="founder-accent-line"></div>
+                        <div class="founder-body">
+                            <div class="founder-meta-row">
+                                <span class="founder-index-num">03</span>
+                                <span class="founder-role-badge founder-role-badge--coral"
+                                    >Co-founder &amp; Head of Technology</span
+                                >
+                            </div>
+                            <p class="founder-name">Aryan Krishnan</p>
+                            <p class="founder-desc">
+                                Aryan Krishnan is a student who is passionate about building software and utilizing
+                                technology to create a positive real-world impact. He enjoys working on a combination of novel
+                                ideas and contributing to ubiquitous real-world systems through the loop of learning from perseverance and determination.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section cta-banner" id="contact">
+            <div class="cta-pattern" aria-hidden="true"></div>
+            <div class="cta-inner reveal-group">
+                <p class="section-label reveal-item" style="color: var(--mid)">Join Us</p>
+                <h2 class="cta-headline reveal-item">
+                    Ready to help break<br /><span class="cta-gradient-text">communication barriers?</span>
+                </h2>
+                <p class="reveal-item">Join our mission. Learn ASL, try our tools, or reach out to collaborate.</p>
+                <div class="cta-actions reveal-item" style="--delay: 0.1s">
+                    <a href="asl-learning-course" class="btn-primary">Start Learning ASL</a>
+                    <a href="contact.html" class="btn-outline">Get in Touch</a>
+                </div>
+            </div>
+        </section>
+
+        <div id="footercontainer"></div>
+        <script src="script.js"></script>
+    </body>
 </html>

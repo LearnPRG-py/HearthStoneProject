@@ -1,735 +1,392 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Project Hearthstone - About</title>
-<style>
-  @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,600;1,300&family=DM+Sans:wght@300;400;500&display=swap');
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Us - Project Hearthstone</title>
+        <link rel="icon" type="image/x-icon" href="../favicon-package/favicon.ico">
+    <link rel="stylesheet" href="../styles.css" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="../Navbar/styles.css" />
+    <link rel="stylesheet" href="../Footer/styles.css" />
+    
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  </head>
+  <body>
 
-  :root {
-    --primary-dark: #020204;
-    --primary-light: #F7F7F7;
-    --highlight: #00D4FF;
-    --mid: #0052D4;
-    --deep: #001A33;
-    --active: #00FF41;
-  }
-
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  html { scroll-behavior: smooth; }
-  body {
-    font-family: 'DM Sans', sans-serif;
-    background: var(--primary-light);
-    color: var(--primary-dark);
-    overflow-x: hidden;
-  }
-
-  /* NAV */
-  nav {
-    position: fixed;
-    top: 0; left: 0; right: 0;
-    z-index: 100;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 20px 48px;
-    background: rgba(247,247,247,0.85);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(0,0,0,0.06);
-  }
-
-  .nav-logo {
-    font-family: 'Fraunces', serif;
-    font-size: 22px;
-    font-weight: 600;
-    letter-spacing: -0.5px;
-    color: var(--primary-dark);
-  }
-  .nav-logo span { color: var(--mid); }
-
-  .nav-links {
-    display: flex;
-    gap: 36px;
-    list-style: none;
-  }
-  .nav-links a {
-    font-size: 14px;
-    font-weight: 400;
-    color: var(--primary-dark);
-    text-decoration: none;
-    opacity: 0.6;
-    transition: opacity 0.2s;
-  }
-  .nav-links a:hover { opacity: 1; }
-
-  /* HERO */
-  .hero {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    padding: 120px 48px 80px;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .hero-bg-grid {
-    position: absolute;
-    inset: 0;
-    background-image:
-      linear-gradient(rgba(0,82,212,0.04) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(0,82,212,0.04) 1px, transparent 1px);
-    background-size: 60px 60px;
-    animation: gridShift 20s linear infinite;
-  }
-  @keyframes gridShift { to { background-position: 60px 60px; } }
-
-  .hero-accent {
-    position: absolute;
-    width: 600px;
-    height: 600px;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(0,212,255,0.08) 0%, transparent 70%);
-    top: -100px;
-    right: -100px;
-    animation: pulse 6s ease-in-out infinite;
-  }
-  @keyframes pulse {
-    0%, 100% { transform: scale(1); opacity: 0.6; }
-    50% { transform: scale(1.1); opacity: 1; }
-  }
-
-  .hero-content { position: relative; max-width: 760px; }
-
-  .hero-tag {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background: rgba(0,82,212,0.08);
-    border: 1px solid rgba(0,82,212,0.15);
-    border-radius: 100px;
-    padding: 6px 16px;
-    font-size: 12px;
-    font-weight: 500;
-    color: var(--mid);
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-    margin-bottom: 32px;
-    opacity: 0;
-    animation: fadeUp 0.8s 0.2s forwards;
-  }
-  .hero-tag::before {
-    content: '';
-    width: 6px; height: 6px;
-    border-radius: 50%;
-    background: var(--active);
-    animation: blink 2s infinite;
-  }
-  @keyframes blink {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.2; }
-  }
-
-  .hero-title {
-    font-family: 'Fraunces', serif;
-    font-size: clamp(52px, 7vw, 88px);
-    font-weight: 600;
-    line-height: 0.95;
-    letter-spacing: -3px;
-    color: var(--primary-dark);
-    margin-bottom: 28px;
-    opacity: 0;
-    animation: fadeUp 0.8s 0.4s forwards;
-  }
-  .hero-title em {
-    font-style: italic;
-    font-weight: 300;
-    color: var(--mid);
-  }
-
-  .hero-sub {
-    font-size: 18px;
-    font-weight: 300;
-    line-height: 1.7;
-    color: rgba(2,2,4,0.55);
-    max-width: 520px;
-    margin-bottom: 48px;
-    opacity: 0;
-    animation: fadeUp 0.8s 0.6s forwards;
-  }
-
-  .hero-cta {
-    display: inline-flex;
-    align-items: center;
-    gap: 12px;
-    background: var(--primary-dark);
-    color: var(--primary-light);
-    border: none;
-    border-radius: 100px;
-    padding: 16px 32px;
-    font-family: 'DM Sans', sans-serif;
-    font-size: 15px;
-    font-weight: 500;
-    cursor: pointer;
-    text-decoration: none;
-    transition: transform 0.2s, background 0.2s;
-    opacity: 0;
-    animation: fadeUp 0.8s 0.8s forwards;
-  }
-  .hero-cta:hover { background: var(--mid); transform: translateY(-2px); }
-  .hero-cta .arrow { transition: transform 0.2s; }
-  .hero-cta:hover .arrow { transform: translateX(4px); }
-
-  .hero-scroll {
-    position: absolute;
-    bottom: 40px; left: 48px;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    font-size: 12px;
-    color: rgba(2,2,4,0.4);
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    opacity: 0;
-    animation: fadeUp 1s 1.2s forwards;
-  }
-  .hero-scroll-line {
-    width: 40px; height: 1px;
-    background: rgba(2,2,4,0.2);
-    animation: lineGrow 1s 1.5s ease forwards;
-    transform-origin: left;
-    transform: scaleX(0);
-  }
-  @keyframes lineGrow { to { transform: scaleX(1); } }
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(24px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  /* ABOUT */
-  .about {
-    background: white;
-    padding: 100px 48px;
-  }
-  .about-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 80px;
-    align-items: start;
-    max-width: 1100px;
-    margin: 0 auto;
-  }
-  .about-heading {
-    font-family: 'Fraunces', serif;
-    font-size: clamp(36px, 4vw, 56px);
-    font-weight: 600;
-    line-height: 1.05;
-    letter-spacing: -2px;
-    margin-bottom: 48px;
-    grid-column: 1 / -1;
-  }
-  .about-heading em { font-style: italic; font-weight: 300; color: var(--mid); }
-
-  .about-card {
-    background: var(--primary-light);
-    border: 1px solid rgba(0,0,0,0.06);
-    border-radius: 24px;
-    padding: 36px;
-    position: relative;
-    overflow: hidden;
-    transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1), box-shadow 0.4s;
-    cursor: default;
-  }
-  .about-card::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0;
-    width: 3px; height: 0;
-    background: linear-gradient(to bottom, var(--highlight), var(--mid));
-    transition: height 0.5s cubic-bezier(0.23, 1, 0.32, 1);
-  }
-  .about-card:hover::before { height: 100%; }
-  .about-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 24px 60px rgba(0,82,212,0.1);
-  }
-  .about-card-num {
-    font-family: 'Fraunces', serif;
-    font-size: 48px;
-    font-weight: 600;
-    color: rgba(0,82,212,0.08);
-    line-height: 1;
-    margin-bottom: 12px;
-  }
-  .about-card h3 {
-    font-family: 'Fraunces', serif;
-    font-size: 26px;
-    font-weight: 600;
-    letter-spacing: -0.5px;
-    margin-bottom: 14px;
-  }
-  .about-card p {
-    font-size: 15px;
-    line-height: 1.75;
-    color: rgba(2,2,4,0.55);
-  }
-
-  .about-visual {
-    grid-column: 2;
-    grid-row: 2 / 4;
-    background: linear-gradient(135deg, var(--deep) 0%, #002855 100%);
-    border-radius: 32px;
-    padding: 48px;
-    color: white;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    min-height: 480px;
-    position: relative;
-    overflow: hidden;
-  }
-  .about-visual::after {
-    content: '';
-    position: absolute;
-    bottom: -60px; right: -60px;
-    width: 240px; height: 240px;
-    border-radius: 50%;
-    background: rgba(0,212,255,0.08);
-  }
-  .about-visual-stat {
-    font-family: 'Fraunces', serif;
-    font-size: 72px;
-    font-weight: 600;
-    color: var(--highlight);
-    line-height: 1;
-    margin-bottom: 8px;
-  }
-  .about-visual-label {
-    font-size: 14px;
-    opacity: 0.6;
-    margin-bottom: 40px;
-  }
-  .about-visual-tags { display: flex; flex-wrap: wrap; gap: 8px; }
-  .about-visual-tag {
-    background: rgba(0,212,255,0.1);
-    border: 1px solid rgba(0,212,255,0.2);
-    border-radius: 100px;
-    padding: 6px 14px;
-    font-size: 12px;
-    color: var(--highlight);
-  }
-
-  /* PROBLEM / SOLUTION */
-  .problem-solution {
-    background: var(--deep);
-    color: white;
-    padding: 100px 48px;
-    position: relative;
-    overflow: hidden;
-  }
-  .ps-scanlines {
-    position: absolute;
-    inset: 0;
-    background: repeating-linear-gradient(
-      0deg, transparent, transparent 2px,
-      rgba(0,255,65,0.015) 2px, rgba(0,255,65,0.015) 4px
-    );
-    pointer-events: none;
-  }
-  .ps-inner { max-width: 1100px; margin: 0 auto; position: relative; }
-
-  .section-label {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    font-size: 11px;
-    font-weight: 500;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--mid);
-    margin-bottom: 20px;
-  }
-
-  .ps-top {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2px;
-    margin-bottom: 60px;
-    border: 1px solid rgba(0,212,255,0.15);
-    border-radius: 24px;
-    overflow: hidden;
-  }
-  .ps-pane { padding: 60px 48px; position: relative; }
-  .ps-pane.problem {
-    background: rgba(255,255,255,0.02);
-    border-right: 1px solid rgba(0,212,255,0.1);
-  }
-  .ps-pane.solution { background: rgba(0,212,255,0.03); }
-  .ps-pane-tag {
-    font-size: 11px;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    font-weight: 500;
-    margin-bottom: 24px;
-  }
-  .ps-pane.problem .ps-pane-tag { color: rgba(255,255,255,0.35); }
-  .ps-pane.solution .ps-pane-tag { color: var(--highlight); }
-  .ps-pane h2 {
-    font-family: 'Fraunces', serif;
-    font-size: clamp(28px, 3vw, 44px);
-    font-weight: 600;
-    letter-spacing: -1.5px;
-    line-height: 1.05;
-    margin-bottom: 20px;
-  }
-  .ps-pane.problem h2 { color: rgba(255,255,255,0.65); }
-  .ps-pane.solution h2 { color: white; }
-  .ps-pane p { font-size: 15px; line-height: 1.75; color: rgba(255,255,255,0.45); max-width: 380px; }
-  .ps-pane.solution p { color: rgba(255,255,255,0.6); }
-  .ps-icon {
-    position: absolute;
-    top: 48px; right: 48px;
-    width: 40px; height: 40px;
-    border-radius: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 18px;
-  }
-  .ps-icon.prob { background: rgba(255,255,255,0.05); }
-  .ps-icon.sol { background: rgba(0,212,255,0.1); }
-
-  .ps-project {
-    border: 1px solid rgba(0,212,255,0.2);
-    border-radius: 24px;
-    padding: 60px;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-  }
-  .ps-project::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 50%;
-    transform: translateX(-50%);
-    width: 200px; height: 1px;
-    background: linear-gradient(to right, transparent, var(--highlight), transparent);
-  }
-  .ps-project-title {
-    font-family: 'Fraunces', serif;
-    font-size: clamp(28px, 4vw, 48px);
-    font-weight: 600;
-    letter-spacing: -2px;
-    color: white;
-    margin-bottom: 16px;
-  }
-  .ps-project-title span { color: var(--highlight); }
-  .ps-project p {
-    font-size: 16px;
-    line-height: 1.75;
-    color: rgba(255,255,255,0.5);
-    max-width: 560px;
-    margin: 0 auto 36px;
-  }
-  .ps-terminal {
-    background: rgba(0,255,65,0.04);
-    border: 1px solid rgba(0,255,65,0.12);
-    border-radius: 12px;
-    padding: 20px 24px;
-    max-width: 500px;
-    margin: 0 auto;
-    text-align: left;
-    font-family: 'Courier New', monospace;
-    font-size: 13px;
-  }
-  .ps-terminal-line {
-    color: var(--active);
-    margin-bottom: 4px;
-    opacity: 0;
-    animation: terminalType 0.3s forwards;
-  }
-  .ps-terminal-line:nth-child(1) { animation-delay: 0.2s; }
-  .ps-terminal-line:nth-child(2) { animation-delay: 0.8s; }
-  .ps-terminal-line:nth-child(3) { animation-delay: 1.4s; }
-  .ps-terminal-line:nth-child(4) { animation-delay: 2.0s; }
-  .ps-terminal-line .dim { color: rgba(0,255,65,0.4); }
-  @keyframes terminalType { to { opacity: 1; } }
-
-  /* FAQ */
-  #faq {
-    background: var(--primary-light);
-    padding: 100px 48px;
-  }
-  .faq-inner { max-width: 760px; margin: 0 auto; }
-  .faq-heading {
-    font-family: 'Fraunces', serif;
-    font-size: clamp(36px, 4vw, 52px);
-    font-weight: 600;
-    letter-spacing: -2px;
-    margin-bottom: 56px;
-    line-height: 1.05;
-  }
-  .faq-item {
-    border-top: 1px solid rgba(0,0,0,0.08);
-    overflow: hidden;
-  }
-  .faq-item:last-child { border-bottom: 1px solid rgba(0,0,0,0.08); }
-  .faq-btn {
-    width: 100%;
-    background: none;
-    border: none;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 28px 0;
-    font-family: 'DM Sans', sans-serif;
-    font-size: 17px;
-    font-weight: 400;
-    color: var(--primary-dark);
-    text-align: left;
-    transition: color 0.2s;
-  }
-  .faq-btn:hover { color: var(--mid); }
-  .faq-btn.active { color: var(--mid); }
-  .faq-icon {
-    width: 28px; height: 28px;
-    border-radius: 50%;
-    border: 1px solid rgba(0,0,0,0.1);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-    margin-left: 20px;
-    transition: background 0.3s, transform 0.4s, border-color 0.3s;
-  }
-  .faq-btn.active .faq-icon {
-    background: var(--mid);
-    border-color: var(--mid);
-    transform: rotate(45deg);
-  }
-  .faq-icon svg { width: 12px; height: 12px; }
-  .faq-btn.active .faq-icon svg path { stroke: white; }
-  .faq-answer {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.5s cubic-bezier(0.23, 1, 0.32, 1);
-  }
-  .faq-answer.open { max-height: 300px; }
-  .faq-answer-inner {
-    padding: 0 0 28px;
-    font-size: 15px;
-    line-height: 1.8;
-    color: rgba(2,2,4,0.55);
-    max-width: 600px;
-  }
-
-  /* DIVIDER */
-  .divider {
-    height: 1px;
-    background: rgba(0,0,0,0.06);
-    margin: 0 48px;
-  }
-
-  /* SCROLL REVEAL */
-  .reveal {
-    opacity: 0;
-    transform: translateY(32px);
-    transition: opacity 0.7s cubic-bezier(0.23,1,0.32,1), transform 0.7s cubic-bezier(0.23,1,0.32,1);
-  }
-  .reveal.visible { opacity: 1; transform: translateY(0); }
-  .reveal-delay-1 { transition-delay: 0.1s; }
-  .reveal-delay-2 { transition-delay: 0.2s; }
-  .reveal-delay-3 { transition-delay: 0.3s; }
-  .reveal-delay-4 { transition-delay: 0.4s; }
-</style>
-</head>
-<body>
-
-<!-- NAV -->
-<nav>
-  <div class="nav-logo">Project <span>Hearthstone</span></div>
-  <ul class="nav-links">
-    <li><a href="#home">Home</a></li>
-    <li><a href="#about">About</a></li>
-    <li><a href="#problem">Mission</a></li>
-    <li><a href="#faq">FAQ</a></li>
-  </ul>
-</nav>
-
-<!-- HERO -->
-<section class="hero" id="home">
-  <div class="hero-bg-grid"></div>
-  <div class="hero-accent"></div>
-  <div class="hero-content">
-    <div class="hero-tag">Active Project — 2025</div>
-    <h1 class="hero-title">Where <em>sign</em><br>meets <em>signal.</em></h1>
-    <p class="hero-sub">Project Hearthstone bridges the gap between American Sign Language and the world — making communication effortless, accessible, and human.</p>
-    <a href="#about" class="hero-cta">
-      Discover the mission
-      <span class="arrow">→</span>
-    </a>
-  </div>
-  <div class="hero-scroll">
-    <div class="hero-scroll-line"></div>
-    Scroll to explore
-  </div>
-</section>
-
-<!-- ABOUT -->
-<section class="about" id="about">
-  <div class="about-grid">
-    <div class="about-heading reveal">
-      Built from<br><em>empathy,</em><br>designed for<em> everyone.</em>
-    </div>
-
-    <div class="about-card reveal reveal-delay-1">
-      <div class="about-card-num">01</div>
-      <h3>The Origin</h3>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
-    </div>
-
-    <div class="about-visual reveal reveal-delay-2">
-      <div>
-        <div class="about-visual-stat">40M+</div>
-        <div class="about-visual-label">Deaf and hard-of-hearing people in the US</div>
-        <div class="about-visual-stat" style="font-size:48px;color:var(--active);margin-top:32px;">Real-time</div>
-        <div class="about-visual-label">ASL recognition & translation</div>
-      </div>
-      <div class="about-visual-tags">
-        <span class="about-visual-tag">Computer Vision</span>
-        <span class="about-visual-tag">Machine Learning</span>
-        <span class="about-visual-tag">ASL</span>
-        <span class="about-visual-tag">Accessibility</span>
-        <span class="about-visual-tag">Open Source</span>
+    <div id="hs-loader" aria-live="polite" aria-label="Loading Project Hearthstone">
+      <div class="hs-loader-orb hs-loader-orb--1"></div>
+      <div class="hs-loader-orb hs-loader-orb--2"></div>
+      <div class="hs-loader-logo">HS</div>
+      <div class="hs-loader-bar-wrap">
+        <div class="hs-loader-track"><div class="hs-loader-fill" id="hs-loader-fill"></div></div>
+        <span class="hs-loader-label">Loading</span>
       </div>
     </div>
 
-    <div class="about-card reveal reveal-delay-3" style="margin-top:-20px;">
-      <div class="about-card-num">02</div>
-      <h3>The Inspiration</h3>
-      <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit.</p>
-    </div>
-  </div>
-</section>
+    <div id="navbarcontainer"></div>
+    <script src="../Common/script.js"></script>
+    <script type="module" src="../Navbar/script.js"></script>
+    <script type="module" src="../Footer/script.js"></script>
 
-<div class="divider"></div>
-
-<!-- PROBLEM / SOLUTION -->
-<section class="problem-solution" id="problem">
-  <div class="ps-scanlines"></div>
-  <div class="ps-inner">
-    <div class="section-label" style="color:rgba(0,212,255,0.6);margin-bottom:48px;">
-      <span style="width:24px;height:1px;background:rgba(0,212,255,0.4);display:inline-block;"></span>
-      The Mission
-    </div>
-
-    <div class="ps-top reveal">
-      <div class="ps-pane problem">
-        <div class="ps-pane-tag">The Problem</div>
-        <div class="ps-icon prob">🚫</div>
-        <h2>Communication is broken for the Deaf community.</h2>
-        <p>Add your problem description here. Explain the gap between ASL users and hearing people that Project Hearthstone aims to close.</p>
+    <header class="about-hero theme-dark">
+      <div class="about-hero-bg">
+        <img src="../images/aboutus/hero-sect.JPG" alt="The Hearthstone team" class="about-hero-img" />
+        <div class="about-hero-overlay"></div>
       </div>
-      <div class="ps-pane solution">
-        <div class="ps-pane-tag">Our Solution</div>
-        <div class="ps-icon sol">✦</div>
-        <h2>Real-time ASL translation, powered by AI.</h2>
-        <p>Add your solution description here. Describe how Project Hearthstone uses computer vision and ML to translate sign language instantly.</p>
+      <div class="about-hero-content">
+        <h1 class="about-hero-title reanimate" data-anim="blur-up">
+          <span class="hero-word">About</span>
+          <span class="hero-word hero-word--accent">Hearthstone</span>
+        </h1>
+        <p class="about-hero-sub reanimate" data-anim="blur-up" style="--delay:0.18s">
+          We're a student-built community dedicated to bridging the barrier between the Deaf and Hearing communities by making sign language more accessible
+        </p>
       </div>
-    </div>
+    </header>
 
-    <div class="ps-project reveal reveal-delay-2">
-      <div class="ps-project-title">Project <span>Hearthstone</span></div>
-      <p>Add your full project description here. This is the heart of your mission — make it count.</p>
-      <div class="ps-terminal">
-        <div class="ps-terminal-line"><span class="dim">$</span> initializing hearthstone.model</div>
-        <div class="ps-terminal-line"><span class="dim">→</span> gesture recognition: <span style="color:var(--active);">ACTIVE</span></div>
-        <div class="ps-terminal-line"><span class="dim">→</span> translation pipeline: <span style="color:var(--active);">ONLINE</span></div>
-        <div class="ps-terminal-line"><span class="dim">→</span> ready. <span style="color:var(--highlight);">bridge established.</span></div>
+    <section class="section story-section theme-light" id="story">
+      <div class="section-inner">
+        <div class="story-grid">
+          <div class="story-text">
+            <p class="section-label reanimate" data-anim="slide-left">Our Story</p>
+            <h2 class="reanimate" data-anim="slide-left" style="--delay:0.06s">Where it all<br /><em>began</em></h2>
+            <p class="reanimate" data-anim="slide-left" style="--delay:0.12s">
+              Project Hearthstone started with a simple but puzzling question: why is communication still a barrier in 2026? Three high school students, passionate about technology and social equity, decided that they weren't willing to accept the status quo.
+            </p>
+            <p class="reanimate" data-anim="slide-left" style="--delay:0.18s">
+              What began as a hackathon prototype evolved into a whole student-led organization dedicated to building AI-powered sign language transcription and learning tools, to bring sign language to a wider audience.
+            </p>
+            <p class="reanimate" data-anim="slide-left" style="--delay:0.24s">
+              Today, Project Hearthstone spans several committees, more than thirty passionate members, and a growing suite of affordable, ergonomically-engineered products all aimed at making communication more accessible for all - a right, not a privilege.
+            </p>
+          </div>
+          <div class="story-visual reanimate" data-anim="slide-right">
+            <div class="story-timeline">
+              <div class="timeline-item reveal-item">
+                <div class="timeline-dot timeline-dot--a"></div>
+                <div class="timeline-content">
+                  <span class="timeline-year">2025</span>
+                  <h4>The Spark</h4>
+                  <p>Project Hearthstone was founded on the concept of an ASL-translating glove</p>
+                </div>
+              </div>
+              <div class="timeline-item reveal-item" style="--delay:0.1s">
+                <div class="timeline-dot timeline-dot--d"></div>
+                <div class="timeline-content">
+                  <span class="timeline-year">Late 2025</span>
+                  <h4>Grant Win</h4>
+                  <p>Our founders applied for the Nord Anglia Social Impact Grant, and won more than $2600, which they've dedicated to intermixing AI and accessibility to lessen the communication gap by expanding Project Hearthstone's prototype diversity</p>
+                </div>
+              </div>
+              <div class="timeline-item reveal-item" style="--delay:0.2s">
+                <div class="timeline-dot timeline-dot--e"></div>
+                <div class="timeline-content">
+                  <span class="timeline-year">Early 2026</span>
+                  <h4>Building the Team</h4>
+                  <p>We expanded to six core committees: technology, management, marketing, social outreach, art & design, and finance</p>
+                </div>
+              </div>
+              <div class="timeline-item reveal-item" style="--delay:0.3s">
+                <div class="timeline-dot timeline-dot--c"></div>
+                <div class="timeline-content">
+                  <span class="timeline-year">2026 -</span>
+                  <h4>Scaling Impact</h4>
+                  <p>Working with other organizations and potential expansion to other countries</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
-</section>
+    </section>
 
-<div class="divider"></div>
-
-<!-- FAQ -->
-<div id="faq">
-  <div class="faq-inner">
-    <div class="section-label reveal">FAQ</div>
-    <h2 class="faq-heading reveal reveal-delay-1">Got questions?<br>We've got answers.</h2>
-    <div id="faq-list" class="reveal reveal-delay-2"></div>
-  </div>
-</div>
-
-<script>
-  // ── FAQ DATA — edit these ──────────────────────────────────────────────────
-  const faqData = [
-    {
-      question: "What is Project Hearthstone?",
-      answer: "Project Hearthstone is an AI-powered tool that translates American Sign Language into text in real time, helping bridge the communication gap between the Deaf community and hearing people."
-    },
-    {
-      question: "How does the ASL recognition work?",
-      answer: "We use computer vision and a custom-trained machine learning model to detect hand gestures via a standard webcam and map them to ASL signs and their meanings."
-    },
-    {
-      question: "Is it free to use?",
-      answer: "Yes — Project Hearthstone is an open-source project with a mission to make accessibility tools available to everyone, free of charge."
-    },
-    {
-      question: "What signs does it currently support?",
-      answer: "Add your answer here. Describe the current ASL vocabulary, fingerspelling support, and any limitations."
-    },
-    {
-      question: "How can I contribute to the project?",
-      answer: "Add your answer here. Link to your GitHub, contribution guidelines, or contact info."
-    }
-  ];
-
-  // ── Build FAQ ──────────────────────────────────────────────────────────────
-  const list = document.getElementById('faq-list');
-  faqData.forEach(item => {
-    const el = document.createElement('div');
-    el.className = 'faq-item';
-    el.innerHTML = `
-      <button class="faq-btn" aria-expanded="false">
-        ${item.question}
-        <span class="faq-icon">
-          <svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M6 1V11M1 6H11" stroke="#020204" stroke-width="1.5" stroke-linecap="round"/>
-          </svg>
-        </span>
-      </button>
-      <div class="faq-answer">
-        <div class="faq-answer-inner">${item.answer}</div>
+    <section class="section why-built-section theme-dark--slate" id="why-built">
+      <div class="section-inner">
+        <div class="why-built reveal-group">
+          <p class="section-label reveal-item">Our Motivation</p>
+          <h2 class="reveal-item" style="--delay:0.05s">
+            Why We Built <em>Hearthstone</em>
+          </h2>
+          <p class="why-built-body reveal-item" style="--delay:0.1s">
+            When we first built a prototype that could recognize a handful of ASL signs, we realized something uncomfortable: millions of people had been waiting for this for decades, and no one had made it simple, free, and accessible.
+          </p>
+        </div>
       </div>
-    `;
-    const btn = el.querySelector('.faq-btn');
-    const ans = el.querySelector('.faq-answer');
-    btn.addEventListener('click', () => {
-      const isOpen = btn.classList.contains('active');
-      document.querySelectorAll('.faq-btn.active').forEach(b => {
-        b.classList.remove('active');
-        b.nextElementSibling.classList.remove('open');
-      });
-      if (!isOpen) {
-        btn.classList.add('active');
-        ans.classList.add('open');
-      }
-    });
-    list.appendChild(el);
-  });
+    </section>
 
-  // ── Scroll reveal ──────────────────────────────────────────────────────────
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) e.target.classList.add('visible');
-    });
-  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    <section class="section founder-letter-section theme-light--alt" id="letter">
+      <div class="founder-notes">
+      <div class="section-inner">
+  <p class="section-label reveal-item">A Note From the Founders</p>
+  <div class="founder-notes-card">
+  <div class="founder-notes reveal-group">
+          <div class="founder-note founder-note--a reveal-item" style="--delay:0.06s">
+            <div class="founder-note-quote" aria-hidden="true">&ldquo;</div>
+            <p class="founder-note-body">
+              I believe that without the ability to innovate to resolve problems, we cannot advance as a species. In the modern society, there exists issues that require critical thinking and committment to be able to solve, and that is something that I wish to embody through Project Hearthstone. The effort that our community has put forward so far has astounded me, and their dedication to contribute to society in meaningful ways is heartwarming.
+            </p>
+            <div class="founder-note-sig">
+              <span class="sig-name">Sresht</span>
+              <span class="sig-role">Founder &amp; Head of Technology</span>
+            </div>
+          </div>
+          <div class="founder-note founder-note--d reveal-item" style="--delay:0.16s">
+            <div class="founder-note-quote" aria-hidden="true">&ldquo;</div>
+            <p class="founder-note-body">
+              I live with my grandmother, who is Deaf. We communicate with her through a mixture of lip-reading and gestures. Since a young age, I've had to come up with innovative methods to communicate with her, and because neither of us knew any formal sign language, some information would get lost in translation, making communication difficult. Because this is something that's close to home, I understand to a relatively large extent the impact that this type of technology would have on other people in similar situations. That is my motivation for contributing to the way that we strive to get rid of communication barriers, especially when the technology that we need to address them already exists - it just needs to be innovated upon.
+            </p>
+            <div class="founder-note-sig">
+              <span class="sig-name">Myra</span>
+              <span class="sig-role">Co-founder &amp; Head of Marketing</span>
+            </div>
+          </div>
+          <div class="founder-note founder-note--e reveal-item" style="--delay:0.26s">
+            <div class="founder-note-quote" aria-hidden="true">&ldquo;</div>
+            <p class="founder-note-body">
+              I joined because I wanted to build something with real stakes, not just a class project. Watching it grow into a team and a real set of tools people use has been the most rewarding part of this for me.
+            </p>
+            <div class="founder-note-sig">
+              <span class="sig-name">Aryan</span>
+              <span class="sig-role">Co-founder &amp; Head of Technology</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+      </div>
+    </section>
 
-  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-</script>
-</body>
+    <section class="section values-section theme-dark" id="values">
+      <div class="section-inner">
+        <div class="values-header reveal-group">
+          <p class="section-label reveal-item">What We Stand For</p>
+          <h2 class="reveal-item">Our <em>Core Values</em></h2>
+        </div>
+        <div class="values-grid">
+          <div class="value-card reveal-item" style="--delay:0s">
+            <div class="value-icon value-icon--a"><i data-lucide="accessibility"></i></div>
+            <h3>Accessibility First</h3>
+            <p>Every product starts with one question: is this usable by everyone? Accessibility is not a feature — it is our foundation.</p>
+          </div>
+          <div class="value-card reveal-item" style="--delay:0.1s">
+            <div class="value-icon value-icon--d"><i data-lucide="users"></i></div>
+            <h3>Community-Centered</h3>
+            <p>We build with the deaf and non-verbal community, not just for them. Real impact requires genuine partnership and listening.</p>
+          </div>
+          <div class="value-card reveal-item" style="--delay:0.2s">
+            <div class="value-icon value-icon--e"><i data-lucide="cpu"></i></div>
+            <h3>Innovation with Purpose</h3>
+            <p>We harness AI not for its own sake, but because it gives us the best tools to solve real human problems.</p>
+          </div>
+          <div class="value-card reveal-item" style="--delay:0.3s">
+            <div class="value-icon value-icon--c"><i data-lucide="book-open"></i></div>
+            <h3>Education as Empowerment</h3>
+            <p>Knowledge breaks barriers. Teaching ASL and building awareness is just as important as building technology.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section voices-section theme-light--surface" id="voices">
+      <div class="section-inner">
+        <div class="voices-header reveal-group">
+          <p class="section-label reveal-item">Heard From the Community</p>
+          <h2 class="reveal-item">Voices that <em>guide us</em></h2>
+        </div>
+      </div>
+      <div class="voices-marquee" id="voices-marquee">
+        <div class="voices-track" id="voices-track">
+          <div class="voice-card">
+            <div class="voice-quote-mark" aria-hidden="true">&ldquo;</div>
+            <p class="voice-text">SignBridge is a step toward something we've needed for years — a way to be understood in everyday situations without needing an interpreter on standby.</p>
+            <div class="voice-author">
+              <div class="voice-avatar voice-avatar--a">JM</div>
+              <div>
+                <p class="voice-name">Jordan M.</p>
+                <p class="voice-role">Deaf community advocate</p>
+              </div>
+            </div>
+          </div>
+          <div class="voice-card">
+            <div class="voice-quote-mark" aria-hidden="true">&ldquo;</div>
+            <p class="voice-text">My students used the ASL course as a supplement in class. The interactive format made it approachable even for kids who had never seen sign language before.</p>
+            <div class="voice-author">
+              <div class="voice-avatar voice-avatar--d">RP</div>
+              <div>
+                <p class="voice-name">Rachel P.</p>
+                <p class="voice-role">Special education teacher</p>
+              </div>
+            </div>
+          </div>
+          <div class="voice-card">
+            <div class="voice-quote-mark" aria-hidden="true">&ldquo;</div>
+            <p class="voice-text">What impresses me most is that they actually talked to us before building. That kind of humility is rare in student projects — and it shows in the product.</p>
+            <div class="voice-author">
+              <div class="voice-avatar voice-avatar--e">DK</div>
+              <div>
+                <p class="voice-name">Dev K.</p>
+                <p class="voice-role">Hard-of-hearing software engineer</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section faq-section theme-dark--slate" id="faq">
+      <div class="section-inner">
+        <div class="faq-header reveal-group">
+          <p class="section-label reveal-item">Common Questions</p>
+          <h2 class="reveal-item">Myths we <em>debunk</em></h2>
+        </div>
+        <div class="faq-list">
+          <div class="faq-item reveal-item" style="--delay:0s">
+            <h4 class="faq-q">Is ASL the same as sign language everywhere?</h4>
+            <p class="faq-a">No. American Sign Language (ASL) is distinct from British Sign Language (BSL), French Sign Language (LSF), and over 300 others worldwide. They are separate, fully-formed languages — not gestured versions of spoken languages. ASL is even grammatically different from English.</p>
+          </div>
+          <div class="faq-item reveal-item" style="--delay:0.06s">
+            <h4 class="faq-q">Do all deaf people use sign language?</h4>
+            <p class="faq-a">Not necessarily. Many deaf and hard-of-hearing individuals use lip-reading, written communication, cochlear implants, or a combination. Hearthstone's tools aim to serve all of these communication styles, not only signed language users.</p>
+          </div>
+          <div class="faq-item reveal-item" style="--delay:0.12s">
+            <h4 class="faq-q">Can an AI really understand sign language accurately?</h4>
+            <p class="faq-a">Current AI models like SignBridge can recognize discrete signs with strong accuracy under controlled conditions, but full conversational ASL — including grammar, facial expressions, and spatial syntax — remains an active research challenge. We're honest about our limitations and publish model accuracy publicly.</p>
+          </div>
+          <div class="faq-item reveal-item" style="--delay:0.18s">
+            <h4 class="faq-q">Is Project Hearthstone free to use?</h4>
+            <p class="faq-a">Yes. All of our tools — SignBridge, the ASL Learning Course, and the Hearthstone Hub — are free. Accessibility should never be paywalled. We sustain the project through grants, partnerships, and school sponsorships.</p>
+          </div>
+          <div class="faq-item reveal-item" style="--delay:0.24s">
+            <h4 class="faq-q">Are you affiliated with any deaf organizations?</h4>
+            <p class="faq-a">We are actively building partnerships with deaf community organizations and school districts. See our Partners section below. If you represent a deaf-focused organization and want to collaborate, we'd love to hear from you.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section press-section theme-light--alt" id="press">
+      <div class="section-inner">
+        <div class="press-header reveal-group">
+          <p class="section-label reveal-item">Recognition</p>
+          <h2 class="reveal-item">Press &amp; <em>Awards</em></h2>
+        </div>
+        <div class="press-strip reveal-item" style="--delay:0.1s">
+          <div class="press-item">
+            <span class="press-icon"><i data-lucide="trophy"></i></span>
+            <span class="press-name">Hackathon 1st Place</span>
+            <span class="press-detail">ASL Recognition — Regional STEM Fair 2023</span>
+          </div>
+          <div class="press-divider" aria-hidden="true"></div>
+          <div class="press-item">
+            <span class="press-icon"><i data-lucide="landmark"></i></span>
+            <span class="press-name">Competitive Grant</span>
+            <span class="press-detail">AI &amp; Accessibility Innovation Fund, 2024</span>
+          </div>
+          <div class="press-divider" aria-hidden="true"></div>
+          <div class="press-item">
+            <span class="press-icon"><i data-lucide="newspaper"></i></span>
+            <span class="press-name">Featured Article</span>
+            <span class="press-detail">Student-led AI for the deaf community</span>
+          </div>
+          <div class="press-divider" aria-hidden="true"></div>
+          <div class="press-item">
+            <span class="press-icon"><i data-lucide="mic"></i></span>
+            <span class="press-name">Conference Speaker</span>
+            <span class="press-detail">Youth &amp; Accessibility Tech Summit, 2024</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section partners-section theme-dark" id="partners">
+      <div class="section-inner">
+        <div class="partners-header reveal-group">
+          <p class="section-label reveal-item">Who We Work With</p>
+          <h2 class="reveal-item">Our <em>Partners</em></h2>
+        </div>
+        <div class="partners-grid">
+          <div class="partner-card reveal-item" style="--delay:0s">
+            <div class="partner-icon partner-icon--a"><i data-lucide="school"></i></div>
+            <p class="partner-name">Local School Districts</p>
+            <p class="partner-desc">Piloting the ASL Course in special education and inclusive classrooms.</p>
+          </div>
+          <div class="partner-card reveal-item" style="--delay:0.1s">
+            <div class="partner-icon partner-icon--d"><i data-lucide="heart-handshake"></i></div>
+            <p class="partner-name">Deaf Community Centers</p>
+            <p class="partner-desc">Community advisors helping shape SignBridge to real-world use cases.</p>
+          </div>
+          <div class="partner-card reveal-item" style="--delay:0.2s">
+            <div class="partner-icon partner-icon--e"><i data-lucide="flask-conical"></i></div>
+            <p class="partner-name">University Research Labs</p>
+            <p class="partner-desc">Academic partnerships supporting our computer vision model development.</p>
+          </div>
+          <div class="partner-card reveal-item" style="--delay:0.3s">
+            <div class="partner-icon partner-icon--c"><i data-lucide="globe"></i></div>
+            <p class="partner-name">Accessibility Nonprofits</p>
+            <p class="partner-desc">Aligned organizations helping us reach underserved communities worldwide.</p>
+          </div>
+        </div>
+        <p class="partners-cta reveal-item" style="--delay:0.4s">
+          Want to partner with us? <a href="contact.html" class="link">Reach out →</a>
+        </p>
+      </div>
+    </section>
+
+    <section class="section team-full theme-light--surface" id="team">
+      <div class="section-inner">
+        <div class="team-header reveal-group">
+          <p class="section-label reveal-item">The People Behind It</p>
+          <h2 class="reveal-item">Meet the <em>Team</em></h2>
+        </div>
+        <p class="team-intro reveal-item">
+          Hearthstone is powered by students who care deeply about equity, technology, and the people our work serves. Organized across five committees, each member brings something unique to the mission.
+        </p>
+
+        <div id="team-committees"></div>
+      </div>
+    </section>
+
+    <section class="section join-section theme-dark--navy" id="join">
+      <div class="section-inner">
+        <div class="join-inner reveal-group">
+          <p class="section-label reveal-item">Open Roles</p>
+          <h2 class="join-headline reveal-item">We're <em>growing.</em><br />Come build with us.</h2>
+          <p class="join-sub reveal-item" style="--delay:0.1s">Hearthstone is a student-led team. We welcome motivated students from any background — no prior experience required, just genuine curiosity and drive.</p>
+          <div class="join-committees reveal-item" style="--delay:0.18s">
+            <div class="join-role join-role--a">
+              <span class="join-role-icon"><i data-lucide="briefcase"></i></span>
+              <span class="join-role-name">Management</span>
+              <span class="join-role-detail">Strategy, ops, and organizational leadership</span>
+            </div>
+            <div class="join-role join-role--d">
+              <span class="join-role-icon"><i data-lucide="code-2"></i></span>
+              <span class="join-role-name">Technology</span>
+              <span class="join-role-detail">AI, embedded systems, computer vision, web development</span>
+            </div>
+            <div class="join-role join-role--c">
+              <span class="join-role-icon"><i data-lucide="heart"></i></span>
+              <span class="join-role-name">Social Impact</span>
+              <span class="join-role-detail">Community outreach, partnerships, advocacy</span>
+            </div>
+            <div class="join-role join-role--e">
+              <span class="join-role-icon"><i data-lucide="pen-tool"></i></span>
+              <span class="join-role-name">Marketing, Art & Design</span>
+              <span class="join-role-detail">Content, design, social media, social presence</span>
+            </div>
+            <div class="join-role join-role--mid">
+              <span class="join-role-icon"><i data-lucide="bar-chart-2"></i></span>
+              <span class="join-role-name">Finance</span>
+              <span class="join-role-detail">Grants, budgeting, and financial planning</span>
+            </div>
+          </div>
+          <a href="https://forms.gle/nEgD5jUD5Ruf8RuA7" class="btn-primary reveal-item" style="--delay:0.28s">Apply to Join →</a>
+        </div>
+      </div>
+    </section>
+
+    <div id="footercontainer"></div>
+    <script src="script.js"></script>
+    <script>lucide.createIcons();</script>
+  </body>
 </html>
