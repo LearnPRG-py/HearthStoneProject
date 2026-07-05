@@ -8,7 +8,7 @@ temporary conversion workaround.
 import tensorflow as tf
 import os
 
-first_person = True
+first_person = False
 
 model_path = (
     "../AI_model_and_Prediction/hearthstone_fingerspelling_AI"
@@ -24,4 +24,4 @@ os.system(
     "tensorflowjs_converter --input_format=tf_saved_model " "saved_model_dir tfjs_model"
 )
 
-os.system("rm -rf saved_model_dir")
+# os.system("rm -rf saved_model_dir")

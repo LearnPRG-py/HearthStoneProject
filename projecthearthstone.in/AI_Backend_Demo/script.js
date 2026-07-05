@@ -3,9 +3,37 @@ const MODEL_URL = "model.json";
 const FIRST_LETTER_FRAMES = 5;
 const DOUBLE_LETTER_FRAMES = 60;
 
-const CLASS_NAMES = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K",
-   "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", 
-   "del", "nothing", "space"];
+const CLASS_NAMES = [
+  "A",
+  "B",
+  "C",
+  "D",
+  "E",
+  "F",
+  "G",
+  "H",
+  "I",
+  "J",
+  "K",
+  "L",
+  "M",
+  "N",
+  "O",
+  "P",
+  "Q",
+  "R",
+  "S",
+  "T",
+  "U",
+  "V",
+  "W",
+  "X",
+  "Y",
+  "Z",
+  "del",
+  "nothing",
+  "space",
+];
 
 const videoEl = document.getElementById("video");
 const canvasEl = document.getElementById("canvas");
@@ -79,6 +107,11 @@ function processLabel(label) {
   }
 }
 
+function speakTranscript() {
+  const message = new SpeechSynthesisUtterance(transcriptEl.textContent);
+  window.speechSynthesis.speak(message);
+}
+
 function emitLetter(label) {
   if (label === "del") {
     transcriptEl.textContent = transcriptEl.textContent.slice(0, -1);
@@ -143,7 +176,7 @@ async function init() {
       isProcessing = true;
 
       try {
-        await hands.send({image: videoEl});
+        await hands.send({ image: videoEl });
       } catch (err) {
         console.error("Hands error:", err);
       }
