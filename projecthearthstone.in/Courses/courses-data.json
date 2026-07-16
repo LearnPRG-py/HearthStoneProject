@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "title": "ASL",
+    "subtitle": "American Sign Language",
+    "backgroundImage": "ASL.png",
+    "first": false,
+    "onclick_url": "ASL"
+  },
+  {
+    "id": 2,
+    "title": "ISL (Coming Soon)",
+    "subtitle": "Indian Sign Language",
+    "backgroundImage": "ISL.png",
+    "first": false,
+    "onclick_url": ""
+  },
+  {
+    "id": 3,
+    "title": "BSL (Coming Soon)",
+    "subtitle": "British Sign Language",
+    "backgroundImage": "BSL.png",
+    "first": false,
+    "onclick_url": ""
+  }
+]

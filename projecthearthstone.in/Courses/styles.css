@@ -1,0 +1,132 @@
+.secondary-heading-text {
+  color: var(--sec-accent-color) !important;
+  width: 100%;
+  text-align: center;
+  margin-bottom: 5%;
+  font-size: 2.5em;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--bg-color);
+  min-height: 100vh;
+  color: white;
+  overflow-x: hidden;
+  user-select: none;
+}
+
+.hero-section {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  text-align: center;
+  padding: 100px 30px;
+}
+
+.hero-content h1 {
+  font-size: 3.5em;
+  margin-bottom: 20px;
+  color: var(--accent-color);
+}
+
+.hero-content p {
+  font-size: 1.5em;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.header h1 {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 700;
+  margin-bottom: 15px;
+  letter-spacing: -0.02em;
+}
+
+.header p {
+  font-size: 1.3rem;
+  opacity: 0.9;
+  font-weight: 300;
+}
+
+.courses-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.course-section {
+  width: 100vw;
+  position: relative;
+  margin-left: calc(-50vw + 50%);
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.course-banner {
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  background-size: 100%;
+  background-position: center;
+  transition:
+    all 0.4s ease,
+    background-size 0.4s ease;
+}
+
+.course-banner::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgb(0 0 0 / 70%);
+  transition: all 0.4s ease;
+}
+
+.course-section:hover .course-banner::before {
+  background: rgb(0 0 0 / 50%);
+}
+
+.course-section:hover .course-banner {
+  height: 300px;
+  background-size: 110%;
+}
+
+.course-title {
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-weight: 800;
+  color: rgb(247 242 236);
+  z-index: 2;
+  position: relative;
+  letter-spacing: -0.02em;
+}
+
+.course-tagline {
+  font-size: 1.2rem;
+  color: white;
+  z-index: 2;
+  position: relative;
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition:
+    opacity 0.4s ease,
+    max-height 0.4s ease,
+    margin-top 0.4s ease;
+  text-align: center;
+  max-width: 80%;
+}
+
+.course-section:hover .course-tagline {
+  opacity: 1;
+  max-height: 100px;
+  margin-top: 10px;
+}
