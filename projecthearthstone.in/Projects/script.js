@@ -4,11 +4,11 @@ const projects = [
     id: 2,
     title: "Hearthstone AI",
     shortDesc:
-      "Our flagship AI model with 99.7% accuracy, supporting fingerspelling and speech-to-text across Python and JavaScript frameworks, optimized for Raspberry Pi.",
-    image: "../src/hearthstone-ai.jpg",
+      "Our flagship AI model with 99.4% accuracy, supporting fingerspelling and speech-to-text across Python and JavaScript frameworks, optimized for Raspberry Pi. Also combined with future work for ISL models and dynamic gestures using LSTM.",
+    image: "hearthstone-ai.jpg",
     specs: [
-      "Accuracy: 99.7%",
-      "Frameworks: Python, JavaScript",
+      "Accuracy: 99.4%",
+      "Frameworks: Python, Mediapipe, Tensorflow, JavaScript",
       "Platform: Raspberry Pi Optimized",
       "Features: Fingerspelling + Speech-to-Text",
     ],
@@ -27,7 +27,7 @@ const projects = [
     title: "Hearthstone Glove",
     shortDesc:
       "Early prototype using Arduino and flex sensors to translate ASL fingerspelling.",
-    image: "../src/hearthstone-glove.jpg",
+    image: "hearthstone-glove.jpg",
     specs: [
       "Hardware: Arduino Uno",
       "Sensors: 5 Flex Sensors",
@@ -39,11 +39,11 @@ const projects = [
       "Our first iteration — a hardware-based glove that captured finger bends to recognize fingerspelling letters. Though it laid the foundation, we moved on to a more powerful AI-driven approach.",
   },
   {
-    id: 3,
+    id: 4,
     title: "Hearthstone ASL Course",
     shortDesc:
       "Gamified learning platform that teaches ASL through interactive lessons, progression tracking, and a complete course system built with HTML, CSS, and JavaScript.",
-    image: "../src/hearthstone-asl-course.jpg",
+    image: "hearthstone-asl-course.jpg",
     specs: [
       "Tech Stack: HTML/CSS/JS",
       "Gamification: XP, Achievements, Levels",
@@ -52,7 +52,23 @@ const projects = [
     ],
     techStack: ["HTML5", "CSS3", "JavaScript", "Gamification"],
     description:
-      "Learning ASL should be fun. Our ASL Course platform turns education into a game — complete lessons, earn XP, unlock achievements, and track your progression as you build real signing skills. Built entirely with web technologies for maximum accessibility.",
+      "Learning ASL should be fun. Our ASL Course platform turns education into a game — complete lessons, earn XP, progress through the tree and build real signing skills. Built entirely with web technologies for maximum accessibility.",
+  },
+  {
+    id: 3,
+    title: "Hearthstone PI",
+    shortDesc:
+      "The main hardware that runs our model to be able to serve detection.",
+    image: "hearthstone-asl-course.jpg",
+    specs: [
+      "Tech Stack: HTML/CSS/JS",
+      "Gamification: XP, Achievements, Levels",
+      "Course Structure: Modular",
+      "Progress Tracking: Yes",
+    ],
+    techStack: ["HTML5", "CSS3", "JavaScript", "Gamification"],
+    description:
+      "Through a careful balance of cost and functionality, we have arrived at a combination of the raspberry pi 5 and the pi cam 1.3. Boasting an in house PCB design, power bank as a power source and fully custom build, this hardware allows for our mission to be achievable.",
   },
 ];
 
@@ -223,7 +239,7 @@ function initParticles() {
   const particleCount = 70; // 60-80 nodes
   const connectionDistance = 120;
   const mouseRepelDist = 150;
-  const mouse = {x: null, y: null};
+  const mouse = { x: null, y: null };
 
   function resize() {
     width = window.innerWidth;
