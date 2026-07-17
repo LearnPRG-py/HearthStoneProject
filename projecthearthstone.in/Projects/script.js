@@ -4,7 +4,7 @@ const projects = [
     id: 2,
     title: "Hearthstone AI",
     shortDesc:
-      "Our flagship AI model with 99.4% accuracy, supporting fingerspelling and speech-to-text across Python and JavaScript frameworks, optimized for Raspberry Pi. Also combined with future work for ISL models and dynamic gestures using LSTM.",
+      "Our core AI model with 99.4% accuracy in V1 for fingerspelling, supporting fingerspelling gestures that are translated to speech. Also combined with future work for ISL models and dynamic gestures using LSTM.",
     image: "hearthstone-ai.jpg",
     specs: [
       "Accuracy: 99.4%",
@@ -20,39 +20,7 @@ const projects = [
       "Raspberry Pi",
     ],
     description:
-      "Hearthstone AI is the heart of our project — a high-accuracy model that understands both hand signs and spoken words. Built on TensorFlow and MediaPipe, it runs smoothly on a Raspberry Pi and works seamlessly in both Python backends and JavaScript frontends. We're actively developing word gesture recognition to move beyond isolated signs.",
-  },
-  {
-    id: 1,
-    title: "Hearthstone Glove",
-    shortDesc:
-      "Early prototype using Arduino and flex sensors to translate ASL fingerspelling.",
-    image: "hearthstone-glove.jpg",
-    specs: [
-      "Hardware: Arduino Uno",
-      "Sensors: 5 Flex Sensors",
-      "Detection: Fingerspelling Only",
-      "Status: Legacy Prototype",
-    ],
-    techStack: ["Arduino C", "Flex Sensors", "Analog Circuits"],
-    description:
-      "Our first iteration — a hardware-based glove that captured finger bends to recognize fingerspelling letters. Though it laid the foundation, we moved on to a more powerful AI-driven approach.",
-  },
-  {
-    id: 4,
-    title: "Hearthstone ASL Course",
-    shortDesc:
-      "Gamified learning platform that teaches ASL through interactive lessons, progression tracking, and a complete course system built with HTML, CSS, and JavaScript.",
-    image: "hearthstone-asl-course.jpg",
-    specs: [
-      "Tech Stack: HTML/CSS/JS",
-      "Gamification: XP, Achievements, Levels",
-      "Course Structure: Modular",
-      "Progress Tracking: Yes",
-    ],
-    techStack: ["HTML5", "CSS3", "JavaScript", "Gamification"],
-    description:
-      "Learning ASL should be fun. Our ASL Course platform turns education into a game — complete lessons, earn XP, progress through the tree and build real signing skills. Built entirely with web technologies for maximum accessibility.",
+      "Hearthstone AI is at the core of our project; a high-accuracy model that understands hand signs, both dynamic and static, and turns them into spoken words. Built on TensorFlow and MediaPipe, it runs on a Raspberry Pi and works well in both Python and JavaScript. This component is under active development to improve accuracy and support more regional alternatives.",
   },
   {
     id: 3,
@@ -68,7 +36,39 @@ const projects = [
     ],
     techStack: ["HTML5", "CSS3", "JavaScript", "Gamification"],
     description:
-      "Through a careful balance of cost and functionality, we have arrived at a combination of the raspberry pi 5 and the pi cam 1.3. Boasting an in house PCB design, power bank as a power source and fully custom build, this hardware allows for our mission to be achievable.",
+      "Through a careful balance of cost and functionality, we have arrived at a combination of the Raspberry Pi 5 and the Pi Cam 1.3. Boasting an in-house PCB design, power bank as a power source, and fully custom-built hardware setup, this hardware allows for our mission to be achievable.",
+  },
+  {
+    id: 4,
+    title: "Hearthstone ASL Course",
+    shortDesc:
+      "Online sign language course that teaches ASL through interactive lessons, progression tracking, and a complete course system built with HTML, CSS, and JavaScript.",
+    image: "hearthstone-asl-course.jpg",
+    specs: [
+      "Tech Stack: HTML/CSS/JS",
+      "Gamification: Level and progress-based with a hands-on approach.",
+      "Course Structure: Modular",
+      "Progress Tracking: Yes",
+    ],
+    techStack: ["HTML5", "CSS3", "JavaScript", "Gamification"],
+    description:
+       "ASL Course platform turns learning sign language with a combination of AI-based hands-on technology to practice as you learn and progress through the tree while building real signing skills. Built entirely with web technologies for maximum accessibility.",
+  },
+  {
+    id: 1,
+    title: "Hearthstone Glove",
+    shortDesc:
+      "Our initial prototype using Arduino and flex sensors to translate ASL fingerspelling.",
+    image: "hearthstone-glove.jpg",
+    specs: [
+      "Hardware: Arduino Uno",
+      "Sensors: 5 Flex Sensors",
+      "Detection: Fingerspelling Only",
+      "Status: Legacy Prototype",
+    ],
+    techStack: ["Arduino C", "Flex Sensors", "Analog Circuits"],
+    description:
+      "Our first iteration, a hardware-based glove that captured finger bends to recognize fingerspelling letters. Though it laid the foundation, we moved on to a more powerful AI-driven approach.",
   },
 ];
 
