@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Coming Soon - Project Hearthstone</title>
+<link rel="stylesheet" href="../Navbar/styles.css" />
+<link rel="stylesheet" href="../Footer/styles.css" />
+<link rel="stylesheet" href="styles.css" />
+<style>
+
+</style>
+</head>
+<body>
+<div id="navbarcontainer"></div>
+<script type="module" src="../Navbar/script.js"></script>
+<script type="module" src="../Footer/script.js"></script>
+<div class="wrap">
+    <div class="content">
+        <div class="logo-ring"><span>HS</span></div>
+
+        <h1>Coming Soon</h1>
+
+        <form class="notify-form" id="notify-form">
+            <input type="email" class="notify-input" id="notify-email" placeholder="Enter your email" required />
+            <button type="submit" class="notify-btn">Notify Me</button>
+        </form>
+        <p class="notify-msg" id="notify-msg"></p>
+    </div>
+</div>
+
+<script>
+(function () {
+    var form = document.getElementById('notify-form');
+    var msg = document.getElementById('notify-msg');
+    form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        var email = document.getElementById('notify-email').value;
+        if (email) {
+            msg.textContent = "Thanks — we'll let you know when we launch!";
+            form.reset();
+        }
+    });
+})();
+</script>
+
+<div id="footercontainer"></div>
+
+</body>
+</html>

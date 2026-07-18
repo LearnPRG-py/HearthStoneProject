@@ -24,35 +24,10 @@ model = tf.keras.models.load_model(
 )
 
 class_names = [
-    "A",
-    "B",
-    "C",
-    "D",
-    "E",
-    "F",
-    "G",
-    "H",
-    "I",
-    "J",
-    "K",
-    "L",
-    "M",
-    "N",
-    "O",
-    "P",
-    "Q",
-    "R",
-    "S",
-    "T",
-    "U",
-    "V",
-    "W",
-    "X",
-    "Y",
-    "Z",
-    "del",
-    "nothing",
-    "space",
+    "A", "B", "C", "D", "E", "F", "G", "H", "I", "J",
+    "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T",
+    "U", "V", "W", "X", "Y", "Z",
+    "del", "nothing", "space",
 ]
 
 
@@ -60,7 +35,6 @@ def auto_correct(word):
     # words like i and a:
     if len(word) <= 1:
         return word
-    # correcting the letters
     corrected = spell.correction(word)
     return corrected if corrected else word
 
@@ -83,7 +57,6 @@ def speak(text):
         subprocess.Popen(["say", text])
     elif system == "Windows":
         import comtypes.client
-
         speaker = comtypes.client.CreateObject("SAPI.SpVoice")
         speaker.Speak(text)
     else:
@@ -119,6 +92,14 @@ def hand_callback(result, output_image, timestamp_ms):
     pts = np.array([[p.x, p.y, p.z] for p in lm], dtype=np.float32)
     ref = pts[0]
     pts = pts - ref
+
+    # Flip X and Z to convert from first-person (chest-mounted) camera
+    # to the second-person (facing) perspective the model was trained on.
+    # X flip: corrects left/right mirror inversion
+    # Z flip: corrects depth direction inversion
+    pts[:, 0] *= -1   # mirror left/right (X)
+    pts[:, 2] *= -1   # flip depth (Z)
+
     pts = pts[1:]
     scale = np.max(np.linalg.norm(pts, axis=1))
     pts /= scale + 1e-6
@@ -137,7 +118,7 @@ options = HandLandmarkerOptions(
 
 landmarker = HandLandmarker.create_from_options(options)
 
-cam = cv2.VideoCapture(0)
+cam = cv2.VideoCapture(1)
 timestamp_ms = 0
 labelbuffer = []
 while cam.isOpened():
@@ -180,6 +161,7 @@ while cam.isOpened():
                 lastspoken = stablelabel
     except queue.Empty:
         pass
+
     cv2.putText(
         frame, current_word, (50, 50), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2
     )

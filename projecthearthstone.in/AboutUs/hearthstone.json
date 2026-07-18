@@ -1,0 +1,83 @@
+{
+  "committees": [
+    {
+      "id": "management",
+      "name": "Management",
+      "description": "Guiding the vision, operations, and strategy of Project Hearthstone.",
+      "icon": "briefcase",
+      "color": "mid",
+      "members": [
+        { "name": "Abhijay Ghosh", "role": "Lead", "photo": "../Images/aboutus/profiles/management/abhijay.png" },
+        { "name": "Vedavarshini", "role": "Lead", "photo": "../Images/aboutus/profiles/management/vedavarshini.png" },
+        { "name": "Venya Mandyam", "role": "Member", "photo": "../Images/aboutus/profiles/management/venya.png" },
+        { "name": "Shatakshi Thiyagashankar", "role": "Member", "photo": "../Images/aboutus/profiles/management/shatakshi.png" },
+        { "name": "Riddhima Singh", "role": "Member", "photo": "../Images/aboutus/profiles/management/riddhima.png" },
+        { "name": "Ashray Joseph George", "role": "Member", "photo": "../Images/aboutus/profiles/management/ashray.png" },
+        { "name": "Doyle Waalia", "role": "Member", "photo": "../Images/aboutus/profiles/management/doyle.png" },
+        { "name": "Advaithaa Magesh", "role": "Member", "photo": "../Images/aboutus/profiles/management/advaithaa.png" },
+        { "name": "Aaishiki Paul", "role": "Member", "photo": "../Images/aboutus/profiles/management/aaishiki.png" }
+      ]
+    },
+    {
+      "id": "technology",
+      "name": "Technology",
+      "description": "Building the AI models, tools, and platforms that power our products.",
+      "icon": "code-2",
+      "color": "accent-d",
+      "members": [
+        { "name": "Sresht Thiyagashankar", "role": "Lead", "photo": "../Images/aboutus/profiles/tech/sresht.jpg" },
+        { "name": "Aryan Krishnan", "role": "Lead", "photo": "../Images/aboutus/profiles/tech/aryan.jpg" },
+        { "name": "Maan Biswas", "role": "Member", "photo": "../Images/aboutus/profiles/tech/maan.png" },
+        { "name": "Rayhaan Sagar", "role": "Member", "photo": "../Images/aboutus/profiles/tech/rayhaan.png" },
+        { "name": "Anika Bindal", "role": "Member", "photo": "../Images/aboutus/profiles/tech/anika.png" },
+        { "name": "Arav Bansal", "role": "Member", "photo": "../Images/aboutus/profiles/tech/arav.png" },
+        { "name": "Yatharth Choudhary", "role": "Member", "photo": "../Images/aboutus/profiles/tech/yatharth.png" },
+        { "name": "Palaksha Sharma", "role": "Member", "photo": "../Images/aboutus/profiles/tech/palaksha.png" },
+        { "name": "Aryan Sinha", "role": "Member", "photo": "../Images/aboutus/profiles/tech/aryan.png" }
+      ]
+    },
+    {
+      "id": "social-impact",
+      "name": "Social Impact",
+      "description": "Driving community outreach, partnerships, and real-world impact.",
+      "icon": "heart",
+      "color": "accent-c",
+      "members": [
+        { "name": "Shreyan Vepanjeri", "role": "Lead", "photo": "../Images/aboutus/profiles/social-impact/shreyan.png" },
+        { "name": "Tricia Mehra", "role": "Lead", "photo": "../Images/aboutus/profiles/social-impact/tricia.png" },
+        { "name": "Siya Ganesh Shirva", "role": "Member", "photo": "../Images/aboutus/profiles/social-impact/siya.png" },
+        { "name": "Padmasri Sundaram", "role": "Member", "photo": "../Images/aboutus/profiles/social-impact/padmasri.png" }
+      ]
+    },
+    {
+      "id": "marketing",
+      "name": "Marketing, Art & Design",
+      "description": "Amplifying our mission through content, design, and visual storytelling.",
+      "icon": "pen-tool",
+      "color": "accent-e",
+      "members": [
+        { "name": "Myra Kulkarni", "role": "Lead", "photo": "../Images/aboutus/profiles/marketing/myra.png" },
+        { "name": "Anvitha Pravin", "role": "Lead", "photo": "../Images/aboutus/profiles/marketing/anvitha.png" },
+        { "name": "Ritika Kalaskar", "role": "Lead", "photo": "../Images/aboutus/profiles/marketing/ritika.png" },
+        { "name": "Joiroobni Veerarajan Kumaran", "role": "Member", "photo": "../Images/aboutus/profiles/marketing/joiroobni.png" },
+        { "name": "Ahana Sinha", "role": "Member", "photo": "../Images/aboutus/profiles/marketing/ahana.png" },
+        { "name": "Pranika Mor", "role": "Member", "photo": "../Images/aboutus/profiles/marketing/pranika.png" },
+        { "name": "Hiya Kashyap", "role": "Member", "photo": "../Images/aboutus/profiles/marketing/hiya.png" },
+        { "name": "Saanvi Reddy", "role": "Member", "photo": "../Images/aboutus/profiles/marketing/saanvi.png" },
+        { "name": "Anirudh Padmanaban", "role": "Member", "photo": "../Images/aboutus/profiles/marketing/anirudh.png" },
+        { "name": "Pari Malik", "role": "Member", "photo": "../Images/aboutus/profiles/marketing/pari.png" }
+      ]
+    },
+    {
+      "id": "finance",
+      "name": "Finance",
+      "description": "Managing grants, budgeting, and financial sustainability for our mission.",
+      "icon": "bar-chart-2",
+      "color": "highlight",
+      "members": [
+        { "name": "Kaavya Bhardwaj", "role": "Lead", "photo": "../Images/aboutus/profiles/finance/kaavya.png" },
+        { "name": "Hriday Sharma", "role": "Member", "photo": "../Images/aboutus/profiles/finance/hriday.png" }
+      ]
+    }
+  ]
+}

@@ -4,19 +4,13 @@
   box-sizing: border-box;
 }
 
-body {
-  font-family: 'Montserrat', sans-serif;
-  background-color:rgb(17, 17, 17);
-  color: var(--text-color);
-}
-
 #sentinel {
   height: 1%;
   width: 100%;
 }
 
 .navbar {
-  height: 70px;
+  height: 0px;
   position: relative;
   z-index: 1000;
 }
@@ -60,14 +54,14 @@ body {
 }
 
 .navbar.dock .nav-inner {
+  opacity: 0.8;
   top: 15px;
-  width: 44%;
-  min-width: fit-content;
   height: 60px;
   padding: 0 1.5rem;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
   border-radius: 999px;
-  transform: translateX(-50%) scale(1);
+  transform: translateX(-50%);
+  transition: all 0.4s ease;
 }
 
 .navbar.dock .nav-inner::before {
@@ -170,33 +164,5 @@ body {
   .nav-inner a {
     font-size: 1rem;
     padding: 0.5rem 0;
-  }
-}
-
-.navbar.dock .nav-inner {
-  width: 42%;
-}
-
-@media (max-width: 1600px) {
-  .navbar.dock .nav-inner {
-    width: 45%;
-  }
-}
-
-@media (max-width: 1400px) {
-  .navbar.dock .nav-inner {
-    width: 67%;
-  }
-}
-
-@media (max-width: 1100px) {
-  .navbar.dock .nav-inner {
-    width: 70%;
-  }
-}
-
-@media (max-width: 600px) {
-  .navbar.dock .nav-inner {
-    width: 100%;
   }
 }

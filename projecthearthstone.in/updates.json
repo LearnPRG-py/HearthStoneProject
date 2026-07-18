@@ -1,9 +1,9 @@
 [ 
   {
-    "title": "This is a placeholder TITLE!!!",
-    "description": "The description goes here!!!! WOWWW!!!",
-    "date": "01-01-2026",
-    "image": "images/placeholder.png",
+    "title": "Project Hearthstone Website",
+    "description": "Release of the Project Hearthstone Website",
+    "date": "06-28-2026",
+    "image": "images/homepage/updates_default.png",
     "importance": 1
   }
 ]

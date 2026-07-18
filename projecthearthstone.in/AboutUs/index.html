@@ -1,87 +1,394 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Us - Project Hearthstone</title>
+        <link rel="icon" type="image/x-icon" href="../favicon-package/favicon.ico">
+    <link rel="stylesheet" href="../styles.css" />
     <link rel="stylesheet" href="style.css" />
-    <script src="script.js" defer></script>
     <link rel="stylesheet" href="../Navbar/styles.css" />
-    <title>Project Hearthstone - Home Page</title>
+    <link rel="stylesheet" href="../Footer/styles.css" />
+    
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
   </head>
   <body>
+
+    <div id="hs-loader" aria-live="polite" aria-label="Loading Project Hearthstone">
+      <div class="hs-loader-orb hs-loader-orb--1"></div>
+      <div class="hs-loader-orb hs-loader-orb--2"></div>
+      <div class="hs-loader-logo">HS</div>
+      <div class="hs-loader-bar-wrap">
+        <div class="hs-loader-track"><div class="hs-loader-fill" id="hs-loader-fill"></div></div>
+        <span class="hs-loader-label">Loading</span>
+      </div>
+    </div>
+
     <div id="navbarcontainer"></div>
+    <script src="../Common/script.js"></script>
     <script type="module" src="../Navbar/script.js"></script>
+    <script type="module" src="../Footer/script.js"></script>
 
-    <div class="hero-image-container">
-      <img src="src/Placeholder.png" alt="Placeholder Image" />
-    </div>
+    <header class="about-hero theme-dark">
+      <div class="about-hero-bg">
+        <img src="../images/aboutus/hero-sect.JPG" alt="The Hearthstone team" class="about-hero-img" />
+        <div class="about-hero-overlay"></div>
+      </div>
+      <div class="about-hero-content">
+        <h1 class="about-hero-title reanimate" data-anim="blur-up">
+          <span class="hero-word">About</span>
+          <span class="hero-word hero-word--accent">Hearthstone</span>
+        </h1>
+        <p class="about-hero-sub reanimate" data-anim="blur-up" style="--delay:0.18s">
+          We're a student-built community dedicated to bridging the barrier between the Deaf and Hearing communities by making sign language more accessible
+        </p>
+      </div>
+    </header>
 
-    <div class="section" id="about-us">
-      <h1>About Project Hearthstone</h1>
-      <div id="vertical-columns">
-        <div id="about-us-text">
-          <div class="about-us-text-section">
-            <h2>The Origin</h2>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat.
+    <section class="section story-section theme-light" id="story">
+      <div class="section-inner">
+        <div class="story-grid">
+          <div class="story-text">
+            <p class="section-label reanimate" data-anim="slide-left">Our Story</p>
+            <h2 class="reanimate" data-anim="slide-left" style="--delay:0.06s">Where it all<br /><em>began</em></h2>
+            <p class="reanimate" data-anim="slide-left" style="--delay:0.12s">
+              Project Hearthstone started with a simple but puzzling question: why is communication still a barrier in 2026? Three high school students, passionate about technology and social equity, decided that they weren't willing to accept the status quo.
+            </p>
+            <p class="reanimate" data-anim="slide-left" style="--delay:0.18s">
+              What began as a hackathon prototype evolved into a whole student-led organization dedicated to building AI-powered sign language transcription and learning tools, to bring sign language to a wider audience.
+            </p>
+            <p class="reanimate" data-anim="slide-left" style="--delay:0.24s">
+              Today, Project Hearthstone spans several committees, more than thirty passionate members, and a growing suite of affordable, ergonomically-engineered products all aimed at making communication more accessible for all - a right, not a privilege.
             </p>
           </div>
-          <div class="about-us-text-section">
-            <h2>The Inspiration</h2>
-            <p>
-              Duis aute irure dolor in reprehenderit in voluptate velit esse
-              cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-              cupidatat non proident, sunt in culpa qui officia deserunt mollit
-              anim id est laborum.
-            </p>
+          <div class="story-visual reanimate" data-anim="slide-right">
+            <div class="story-timeline">
+              <div class="timeline-item reveal-item">
+                <div class="timeline-dot timeline-dot--a"></div>
+                <div class="timeline-content">
+                  <span class="timeline-year">2025</span>
+                  <h4>The Spark</h4>
+                  <p>Project Hearthstone was founded on the concept of an ASL-translating glove</p>
+                </div>
+              </div>
+              <div class="timeline-item reveal-item" style="--delay:0.1s">
+                <div class="timeline-dot timeline-dot--d"></div>
+                <div class="timeline-content">
+                  <span class="timeline-year">Late 2025</span>
+                  <h4>Grant Win</h4>
+                  <p>Our founders applied for the Nord Anglia Social Impact Grant, and won more than $2600, which they've dedicated to intermixing AI and accessibility to lessen the communication gap by expanding Project Hearthstone's prototype diversity</p>
+                </div>
+              </div>
+              <div class="timeline-item reveal-item" style="--delay:0.2s">
+                <div class="timeline-dot timeline-dot--e"></div>
+                <div class="timeline-content">
+                  <span class="timeline-year">Early 2026</span>
+                  <h4>Building the Team</h4>
+                  <p>We expanded to six core committees: technology, management, marketing, social outreach, art & design, and finance</p>
+                </div>
+              </div>
+              <div class="timeline-item reveal-item" style="--delay:0.3s">
+                <div class="timeline-dot timeline-dot--c"></div>
+                <div class="timeline-content">
+                  <span class="timeline-year">2026 -</span>
+                  <h4>Scaling Impact</h4>
+                  <p>Working with other organizations and potential expansion to other countries</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-        <div id="about-us-image">
-          <img
-            src="src/hearthstone.webp"
-            alt="Image of Hearthstone from Magnus Chase"
-          />
+      </div>
+    </section>
+
+    <section class="section why-built-section theme-dark--slate" id="why-built">
+      <div class="section-inner">
+        <div class="why-built reveal-group">
+          <p class="section-label reveal-item">Our Motivation</p>
+          <h2 class="reveal-item" style="--delay:0.05s">
+            Why We Built <em>Hearthstone</em>
+          </h2>
+          <p class="why-built-body reveal-item" style="--delay:0.1s">
+            When we first built a prototype that could recognize a handful of ASL signs, we realized something uncomfortable: millions of people had been waiting for this for decades, and no one had made it simple, free, and accessible.
+          </p>
         </div>
       </div>
-    </div>
+    </section>
 
-    <div class="container">
-      <div class="top-image">
-        <img src="asl-problem.png" alt="Problem" class="problem-img" />
-        <img src="asl-solution.png" alt="Solution" />
-      </div>
-
-      <div class="row">
-        <div class="box">
-          <div class="title problem">PROBLEM</div>
-          <div class="desc">add text here</div>
+    <section class="section founder-letter-section theme-light--alt" id="letter">
+      <div class="founder-notes">
+      <div class="section-inner">
+  <p class="section-label reveal-item">A Note From the Founders</p>
+  <div class="founder-notes-card">
+  <div class="founder-notes reveal-group">
+          <div class="founder-note founder-note--a reveal-item" style="--delay:0.06s">
+            <div class="founder-note-quote" aria-hidden="true">&ldquo;</div>
+            <p class="founder-note-body">
+              I believe that without the ability to innovate to resolve problems, we cannot advance as a species. In the modern society, there exists issues that require critical thinking and committment to be able to solve, and that is something that I wish to embody through Project Hearthstone. The effort that our community has put forward so far has astounded me, and their dedication to contribute to society in meaningful ways is heartwarming.
+            </p>
+            <div class="founder-note-sig">
+              <span class="sig-name">Sresht</span>
+              <span class="sig-role">Founder &amp; Head of Technology</span>
+            </div>
+          </div>
+          <div class="founder-note founder-note--d reveal-item" style="--delay:0.16s">
+            <div class="founder-note-quote" aria-hidden="true">&ldquo;</div>
+            <p class="founder-note-body">
+              I live with my grandmother, who is Deaf. We communicate with her through a mixture of lip-reading and gestures. Since a young age, I've had to come up with innovative methods to communicate with her, and because neither of us knew any formal sign language, some information would get lost in translation, making communication difficult. Because this is something that's close to home, I understand to a relatively large extent the impact that this type of technology would have on other people in similar situations. That is my motivation for contributing to the way that we strive to get rid of communication barriers, especially when the technology that we need to address them already exists - it just needs to be innovated upon.
+            </p>
+            <div class="founder-note-sig">
+              <span class="sig-name">Myra</span>
+              <span class="sig-role">Co-founder &amp; Head of Marketing</span>
+            </div>
+          </div>
+          <div class="founder-note founder-note--e reveal-item" style="--delay:0.26s">
+            <div class="founder-note-quote" aria-hidden="true">&ldquo;</div>
+            <p class="founder-note-body">
+              I've always been the kind of person who can't leave a broken thing alone — whether that's a merge conflict at 2am or a system that quietly excludes people because nobody bothered to fix it. Sign language technology felt like exactly that kind of problem: the pieces already exist, they're just scattered and unpolished. Getting to actually build the thing instead of just talking about it — writing the model, breaking it, rebuilding it — has been the most honest kind of satisfaction I've found in any project so far.
+            </p>
+            <div class="founder-note-sig">
+              <span class="sig-name">Aryan</span>
+              <span class="sig-role">Co-founder &amp; Head of Technology</span>
+            </div>
+          </div>
         </div>
+      </div>
+      </div>
+      </div>
+    </section>
 
-        <div class="box">
-          <div class="title solution">SOLUTION</div>
-          <div class="desc">Add text here</div>
+    <section class="section values-section theme-dark" id="values">
+      <div class="section-inner">
+        <div class="values-header reveal-group">
+          <p class="section-label reveal-item">What We Stand For</p>
+          <h2 class="reveal-item">Our <em>Core Values</em></h2>
+        </div>
+        <div class="values-grid">
+          <div class="value-card reveal-item" style="--delay:0s">
+            <div class="value-icon value-icon--a"><i data-lucide="accessibility"></i></div>
+            <h3>Accessibility First</h3>
+            <p>Every product starts with one question: is this usable by everyone? Accessibility is not a feature — it is our foundation.</p>
+          </div>
+          <div class="value-card reveal-item" style="--delay:0.1s">
+            <div class="value-icon value-icon--d"><i data-lucide="users"></i></div>
+            <h3>Community-Centered</h3>
+            <p>We build with the deaf and non-verbal community, not just for them. Real impact requires genuine partnership and listening.</p>
+          </div>
+          <div class="value-card reveal-item" style="--delay:0.2s">
+            <div class="value-icon value-icon--e"><i data-lucide="cpu"></i></div>
+            <h3>Innovation with Purpose</h3>
+            <p>We harness AI not for its own sake, but because it gives us the best tools to solve real human problems.</p>
+          </div>
+          <div class="value-card reveal-item" style="--delay:0.3s">
+            <div class="value-icon value-icon--c"><i data-lucide="book-open"></i></div>
+            <h3>Education as Empowerment</h3>
+            <p>Knowledge breaks barriers. Teaching ASL and building awareness is just as important as building technology.</p>
+          </div>
         </div>
       </div>
+    </section>
 
-      <div class="divider"></div>
-
-      <div class="project-box">
-        <div class="project-title">PROJECT HEARTHSTONE</div>
-        <div class="project-desc">Add text here .</div>
+    <section class="section voices-section theme-light--surface" id="voices">
+      <div class="section-inner">
+        <div class="voices-header reveal-group">
+          <p class="section-label reveal-item">Heard From the Community</p>
+          <h2 class="reveal-item">Voices that <em>guide us</em></h2>
+        </div>
       </div>
-    </div>
+      <div class="voices-marquee" id="voices-marquee">
+        <div class="voices-track" id="voices-track">
+          <div class="voice-card">
+            <div class="voice-quote-mark" aria-hidden="true">&ldquo;</div>
+            <p class="voice-text">Project Hearthstone is one of the most amazing projects i have ever seen. The idea and the execution of the project not only helps our society but inspires others to do a change. Using technology to change the world is one of the most ideal way of utilizing your time. Giving this power to others to innovate and help is what this project does. It really does change lives.</p>
+            <div class="voice-author">
+              <div class="voice-avatar voice-avatar--a">SR</div>
+              <div>
+                <p class="voice-name">Soumyajit R.</p>
+                <p class="voice-role">IBDP student</p>
+              </div>
+            </div>
+          </div>
+          <div class="voice-card">
+            <div class="voice-quote-mark" aria-hidden="true">&ldquo;</div>
+            <p class="voice-text">It's an amazing initiative by Sresht, Myra and Aryan. Appreciate them for creating the product for members who have auditory impairment. Proud of them!</p>
+            <div class="voice-author">
+              <div class="voice-avatar voice-avatar--d">PN</div>
+              <div>
+                <p class="voice-name">Punitha N.</p>
+                <p class="voice-role">IBDP Teacher</p>
+              </div>
+            </div>
+          </div>
+          <div class="voice-card">
+            <div class="voice-quote-mark" aria-hidden="true">&ldquo;</div>
+            <p class="voice-text">Project Hearthstone is a shining example of what happens when empathy meets innovation.
 
-    <div class="divider-box"><div class="divider-line"></div></div>
+At Oakridge, our students set out with one goal: to break communication barriers for the Deaf community. Through Project Hearthstone, they built a solution to help decode language into ASL — giving voice to those who communicate differently.
 
-    <div class="section" id="faq">
-      <h1>Frequently Asked Questions</h1>
+What makes me most proud is that this wasn't just a tech project. It was driven by compassion, collaboration, and the true spirit of the IB Learner Profile — being caring, reflective, and principled.
 
-      <ul id="faq-list"></ul>
-    </div>
+Project Hearthstone reminds us that small teams of students can create big impact. It's not just changing how we communicate, it's changing how we see each other.</p>
+            <div class="voice-author">
+              <div class="voice-avatar voice-avatar--e">SK</div>
+              <div>
+                <p class="voice-name">Sonia K.</p>
+                <p class="voice-role">Social Impact Lead</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-    <div class="divider-box"><div class="divider-line"></div></div>
+    <section class="section faq-section theme-dark--slate" id="faq">
+      <div class="section-inner">
+        <div class="faq-header reveal-group">
+          <p class="section-label reveal-item">Common Questions</p>
+          <h2 class="reveal-item">Myths we <em>debunk</em></h2>
+        </div>
+        <div class="faq-list">
+          <div class="faq-item reveal-item" style="--delay:0s">
+            <h4 class="faq-q">What kinds of devices does Project Hearthstone make?</h4>
+            <p class="faq-a">We make portable chest-mount AI sign language recognition camera-based translation systems using Raspberry Pi technology! Our first prototype was a glove, but the Hearthstone Glove is no longer in production in favor of more reliable Hearthstone AI technology.</p>
+          </div>
+          <div class="faq-item reveal-item" style="--delay:0.06s">
+            <h4 class="faq-q">What languages are available on Hearthstone technology?</h4>
+            <p class="faq-a">We have already developed and are in the process of testing our ASL models. We're working on the development of an ISL translation software, and our BSL devices will be coming soon.</p>
+          </div>
+          <div class="faq-item reveal-item" style="--delay:0.12s">
+            <h4 class="faq-q">What country is Project Hearthstone located in?</h4>
+            <p class="faq-a">Our headquarters are in Bengaluru, India, but we are currently open to expansion to other countries where collaborators would like to join us. Contact us for more information!</p>
+          </div>
+          <div class="faq-item reveal-item" style="--delay:0.18s">
+            <h4 class="faq-q">Can I join Project Hearthstone?</h4>
+            <p class="faq-a">Absolutely! If you are committed to the cause and feel you have skills to offer, check us out on LinkedIn or contact us directly.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+<!-- 
+    <section class="section press-section theme-light--alt" id="press">
+      <div class="section-inner">
+        <div class="press-header reveal-group">
+          <p class="section-label reveal-item">Recognition</p>
+          <h2 class="reveal-item">Press &amp; <em>Awards</em></h2>
+        </div>
+        <div class="press-strip reveal-item" style="--delay:0.1s">
+          <div class="press-item">
+            <span class="press-icon"><i data-lucide="trophy"></i></span>
+            <span class="press-name">Hackathon 1st Place</span>
+            <span class="press-detail">ASL Recognition — Regional STEM Fair 2023</span>
+          </div>
+          <div class="press-divider" aria-hidden="true"></div>
+          <div class="press-item">
+            <span class="press-icon"><i data-lucide="landmark"></i></span>
+            <span class="press-name">Competitive Grant</span>
+            <span class="press-detail">AI &amp; Accessibility Innovation Fund, 2024</span>
+          </div>
+          <div class="press-divider" aria-hidden="true"></div>
+          <div class="press-item">
+            <span class="press-icon"><i data-lucide="newspaper"></i></span>
+            <span class="press-name">Featured Article</span>
+            <span class="press-detail">Student-led AI for the deaf community</span>
+          </div>
+          <div class="press-divider" aria-hidden="true"></div>
+          <div class="press-item">
+            <span class="press-icon"><i data-lucide="mic"></i></span>
+            <span class="press-name">Conference Speaker</span>
+            <span class="press-detail">Youth &amp; Accessibility Tech Summit, 2024</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section partners-section theme-dark" id="partners">
+      <div class="section-inner">
+        <div class="partners-header reveal-group">
+          <p class="section-label reveal-item">Who We Work With</p>
+          <h2 class="reveal-item">Our <em>Partners</em></h2>
+        </div>
+        <div class="partners-grid">
+          <div class="partner-card reveal-item" style="--delay:0s">
+            <div class="partner-icon partner-icon--a"><i data-lucide="school"></i></div>
+            <p class="partner-name">Local School Districts</p>
+            <p class="partner-desc">Piloting the ASL Course in special education and inclusive classrooms.</p>
+          </div>
+          <div class="partner-card reveal-item" style="--delay:0.1s">
+            <div class="partner-icon partner-icon--d"><i data-lucide="heart-handshake"></i></div>
+            <p class="partner-name">Deaf Community Centers</p>
+            <p class="partner-desc">Community advisors helping shape SignBridge to real-world use cases.</p>
+          </div>
+          <div class="partner-card reveal-item" style="--delay:0.2s">
+            <div class="partner-icon partner-icon--e"><i data-lucide="flask-conical"></i></div>
+            <p class="partner-name">University Research Labs</p>
+            <p class="partner-desc">Academic partnerships supporting our computer vision model development.</p>
+          </div>
+          <div class="partner-card reveal-item" style="--delay:0.3s">
+            <div class="partner-icon partner-icon--c"><i data-lucide="globe"></i></div>
+            <p class="partner-name">Accessibility Nonprofits</p>
+            <p class="partner-desc">Aligned organizations helping us reach underserved communities worldwide.</p>
+          </div>
+        </div>
+        <p class="partners-cta reveal-item" style="--delay:0.4s">
+          Want to partner with us? <a href="contact.html" class="link">Reach out →</a>
+        </p>
+      </div>
+    </section> -->
+
+    <section class="section team-full theme-light--surface" id="team">
+      <div class="section-inner">
+        <div class="team-header reveal-group">
+          <p class="section-label reveal-item">The People Behind It</p>
+          <h2 class="reveal-item">Meet the <em>Team</em></h2>
+        </div>
+        <p class="team-intro reveal-item">
+          Hearthstone is powered by students who care deeply about equity, technology, and the people our work serves. Organized across five committees, each member brings something unique to the mission.
+        </p>
+
+        <div id="team-committees"></div>
+      </div>
+    </section>
+
+    <section class="section join-section theme-dark--navy" id="join">
+      <div class="section-inner">
+        <div class="join-inner reveal-group">
+          <p class="section-label reveal-item">Open Roles</p>
+          <h2 class="join-headline reveal-item">We're <em>growing.</em><br />Come build with us.</h2>
+          <p class="join-sub reveal-item" style="--delay:0.1s">Hearthstone is a student-led team, and we welcome motivated students from any background, no prior experience required.</p>
+          <div class="join-committees reveal-item" style="--delay:0.18s">
+            <div class="join-role join-role--a">
+              <span class="join-role-icon"><i data-lucide="briefcase"></i></span>
+              <span class="join-role-name">Management</span>
+              <span class="join-role-detail">Strategy, ops, and organizational leadership</span>
+            </div>
+            <div class="join-role join-role--d">
+              <span class="join-role-icon"><i data-lucide="code-2"></i></span>
+              <span class="join-role-name">Technology</span>
+              <span class="join-role-detail">AI, embedded systems, computer vision, web development</span>
+            </div>
+            <div class="join-role join-role--c">
+              <span class="join-role-icon"><i data-lucide="heart"></i></span>
+              <span class="join-role-name">Social Impact</span>
+              <span class="join-role-detail">Community outreach, partnerships, advocacy</span>
+            </div>
+            <div class="join-role join-role--e">
+              <span class="join-role-icon"><i data-lucide="pen-tool"></i></span>
+              <span class="join-role-name">Marketing, Art & Design</span>
+              <span class="join-role-detail">Content, design, social media, social presence</span>
+            </div>
+            <div class="join-role join-role--mid">
+              <span class="join-role-icon"><i data-lucide="bar-chart-2"></i></span>
+              <span class="join-role-name">Finance</span>
+              <span class="join-role-detail">Grants, budgeting, and financial planning</span>
+            </div>
+          </div>
+          <a href="https://forms.gle/nEgD5jUD5Ruf8RuA7" class="btn-primary reveal-item" style="--delay:0.28s">Apply to Join →</a>
+        </div>
+      </div>
+    </section>
+
+    <div id="footercontainer"></div>
+    <script src="script.js"></script>
+    <script>lucide.createIcons();</script>
   </body>
 </html>
