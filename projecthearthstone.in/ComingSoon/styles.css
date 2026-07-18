@@ -1,0 +1,159 @@
+@font-face {
+    font-family: "Cooper Hewitt";
+    font-style: normal;
+    font-display: swap;
+    font-weight: 400;
+    src: url(https://cdn.jsdelivr.net/fontsource/fonts/cooper-hewitt@latest/latin-400-normal.woff2) format("woff2"),
+         url(https://cdn.jsdelivr.net/fontsource/fonts/cooper-hewitt@latest/latin-400-normal.woff) format("woff");
+}
+@font-face {
+    font-family: "Cooper Hewitt";
+    font-style: normal;
+    font-display: swap;
+    font-weight: 600;
+    src: url(https://cdn.jsdelivr.net/fontsource/fonts/cooper-hewitt@latest/latin-600-normal.woff2) format("woff2"),
+         url(https://cdn.jsdelivr.net/fontsource/fonts/cooper-hewitt@latest/latin-600-normal.woff) format("woff");
+}
+
+:root {
+    --primary-dark: #020204;
+    --highlight: #00d4ff;
+    --mid: #0052d4;
+    --deep: #001a33;
+    --active: #00ff41;
+    --mid-glow: rgba(0, 82, 212, 0.35);
+    --font-main: "Cooper Hewitt", system-ui, sans-serif;
+    --ease-expo: cubic-bezier(0.16, 1, 0.3, 1);
+    --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+    height: 100%;
+    font-family: var(--font-main);
+    background: #050d1a;
+    color: #fff;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+}
+
+.wrap {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 24px;
+    overflow: hidden;
+}
+
+.content {
+    position: relative;
+    z-index: 2;
+    max-width: 640px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.logo-ring {
+    width: 74px;
+    height: 74px;
+    border-radius: 50%;
+    background: var(--mid);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 32px var(--mid-glow);
+    margin-bottom: 36px;
+    animation: logoPulse 2.4s ease-in-out infinite;
+}
+
+.logo-ring span {
+    font-size: 24px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+}
+
+@keyframes logoPulse {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(0, 82, 212, 0.45); }
+    50% { box-shadow: 0 0 0 16px rgba(0, 82, 212, 0); }
+}
+
+h1 {
+    font-size: clamp(40px, 7vw, 76px);
+    font-weight: 600;
+    line-height: 1.04;
+    letter-spacing: -0.03em;
+    margin-bottom: 22px;
+}
+
+h1 em {
+    font-style: normal;
+    color: var(--highlight);
+    text-shadow: 0 0 60px rgba(0, 212, 255, 0.45);
+}
+
+.notify-form {
+    display: flex;
+    gap: 10px;
+    width: 100%;
+    max-width: 420px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.notify-input {
+    flex: 1;
+    min-width: 200px;
+    padding: 14px 20px;
+    border-radius: 10px;
+    border: 1.5px solid rgba(255, 255, 255, 0.14);
+    background: rgba(255, 255, 255, 0.05);
+    color: #fff;
+    font-family: var(--font-main);
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.25s, background 0.25s;
+}
+
+.notify-input::placeholder { color: rgba(255, 255, 255, 0.35); }
+
+.notify-input:focus {
+    border-color: var(--mid);
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.notify-btn {
+    padding: 14px 28px;
+    border-radius: 10px;
+    border: none;
+    background: var(--mid);
+    color: #fff;
+    font-family: var(--font-main);
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 4px 24px var(--mid-glow);
+    transition: transform 0.3s var(--ease-spring), box-shadow 0.3s;
+    white-space: nowrap;
+}
+
+.notify-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 32px var(--mid-glow);
+}
+
+.notify-msg {
+    margin-top: 16px;
+    font-size: 13px;
+    color: var(--active);
+    min-height: 18px;
+}
+
+@media (max-width: 480px) {
+    .notify-form { flex-direction: column; }
+    .notify-btn { width: 100%; }
+}

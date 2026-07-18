@@ -277,27 +277,14 @@
   gap: 24px;
   width: max-content;
   padding: 4px 0 4px 32px;
+  align-items: flex-start;
   animation: voicesScroll 36s linear infinite;
 }
-
 @keyframes voicesScroll {
   from { transform: translateX(0); }
   to   { transform: translateX(-50%); }
 }
 
-.voice-card {
-  background: var(--bg);
-  border: 1px solid var(--border-soft);
-  border-radius: 18px;
-  padding: 32px 28px 28px;
-  position: relative;
-  transition: transform 0.3s ease;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  width: 380px;
-  flex-shrink: 0;
-}
 
 
 .voice-quote-mark {
@@ -310,8 +297,45 @@
   opacity: 0.1;
 }
 
-.voice-text { font-family: var(--font-note); font-size: 16px; line-height: 1.7; color: var(--text); font-style: normal; margin: 0; flex: 1; }
-.voice-author { display: flex; align-items: center; gap: 12px; }
+
+
+.voice-card {
+  background: var(--bg);
+  border: 1px solid var(--border-soft);
+  border-radius: 18px;
+  padding: 32px 28px 28px;
+  position: relative;
+  transition: transform 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  width: fit-content;
+  min-width: 280px;
+  max-width: 480px;
+  flex-shrink: 0;
+}
+
+.voice-text {
+  font-family: var(--font-note);
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--text);
+  font-style: normal;
+  margin: 0;
+  text-align: center;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  height: calc(1.7em * 4);
+}
+.voice-author {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-top: 4px;
+}
 
 .voice-avatar {
   width: 38px; height: 38px;

@@ -13,8 +13,9 @@ fetch(headerUrl)
     let isHamburgerOpen = false;
 
     if (navbar && sentinel) {
-      new IntersectionObserver(([e]) => {
-        navbar.classList.toggle('dock', !e.isIntersecting);
+      new IntersectionObserver(([entry]) => {
+          navbar.classList.toggle("dock", !entry.isIntersecting);
+          updateNavbarWidth();
       }).observe(sentinel);
     }
 
@@ -36,3 +37,30 @@ fetch(headerUrl)
         pageTitle.textContent = document.title.replace("Oakridge Codefest 2026 - ", "");
     }
   });
+function updateNavbarWidth() {
+    const navbar = document.querySelector(".navbar");
+    const navInner = document.querySelector(".nav-inner");
+    const navMenu = document.querySelector(".nav-menu");
+
+    if (!navbar.classList.contains("dock")) {
+        navInner.style.width = "";
+        return;
+    }
+
+    const rect = navMenu.getBoundingClientRect();
+
+    const styles = getComputedStyle(navInner);
+    const padding =
+        parseFloat(styles.paddingLeft) +
+        parseFloat(styles.paddingRight);
+
+    const width = Math.min(
+        rect.width + padding + 20,
+        window.innerWidth * 0.9
+    );
+
+    navInner.style.width = `${width}px`;
+}
+
+window.addEventListener("resize", updateNavbarWidth);
+window.addEventListener("load", updateNavbarWidth);
