@@ -314,24 +314,6 @@ function watch(selector, onEnter, onLeave, opts) {
 })();
 
 (function () {
-    document
-        .querySelectorAll('.btn-primary, .btn-outline, .btn-ghost')
-        .forEach(function (btn) {
-            btn.addEventListener('mousemove', function (e) {
-                var r = btn.getBoundingClientRect();
-                var dx = (e.clientX - (r.left + r.width / 2)) * 0.2;
-                var dy = (e.clientY - (r.top + r.height / 2)) * 0.2;
-                btn.style.transform = 'translate(' + dx + 'px,' + dy + 'px)';
-                btn.style.transition = 'transform 0.1s linear';
-            });
-            btn.addEventListener('mouseleave', function () {
-                btn.style.transform = '';
-                btn.style.transition = 'transform 0.6s cubic-bezier(0.34,1.56,0.64,1)';
-            });
-        });
-})();
-
-(function () {
     var card = document.querySelector('.about-visual-card');
     if (!card) return;
     var pills = card.querySelectorAll('.avc-pill');
