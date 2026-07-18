@@ -1,11 +1,11 @@
 [
   {
     "id": 1,
-    "title": "ASL",
+    "title": "ASL (Coming Soon)",
     "subtitle": "American Sign Language",
     "backgroundImage": "ASL.png",
     "first": false,
-    "onclick_url": "ASL"
+    "onclick_url": "../ComingSoon"
   },
   {
     "id": 2,
@@ -13,7 +13,7 @@
     "subtitle": "Indian Sign Language",
     "backgroundImage": "ISL.png",
     "first": false,
-    "onclick_url": ""
+    "onclick_url": "../ComingSoon"
   },
   {
     "id": 3,
@@ -21,6 +21,6 @@
     "subtitle": "British Sign Language",
     "backgroundImage": "BSL.png",
     "first": false,
-    "onclick_url": ""
+    "onclick_url": "../ComingSoon"
   }
 ]

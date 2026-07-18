@@ -706,7 +706,7 @@
   --accent-d:       #5B7FFF;          
   --accent-e:       #FFB23E;          
 
-  --font-main: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+  /* --font-main: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif; */
   --font-note: 'Source Serif 4', 'Source Serif Pro', Georgia, 'Times New Roman', serif;
   --ease-spring: cubic-bezier(0.16, 1, 0.3, 1);
 }
