@@ -1,3 +1,6 @@
 [submodule "prototype_3/HearthstoneCAD"]
 	path = prototype_3/HearthstoneCAD
 	url = https://github.com/LearnPRG-py/HearthstoneCAD.git
+[submodule "Hearthstone-App"]
+	path = Hearthstone-App
+	url = https://github.com/LearnPRG-py/Hearthstone-App.git
