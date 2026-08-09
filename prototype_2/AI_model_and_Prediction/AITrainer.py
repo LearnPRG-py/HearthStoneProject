@@ -19,10 +19,10 @@ from tensorflow.keras import layers, models, callbacks
 EPOCHS = 50
 BATCH_SIZE = 64
 MODEL_SAVE_PATH = "asl_cnn_model_29cls_rel"
-RANDOM_SEED = 42
+random_seed = 42
 first_person = True
-np.random.seed(RANDOM_SEED)
-tf.random.set_seed(RANDOM_SEED)
+np.random.seed(random_seed)
+tf.random.set_seed(random_seed)
 
 # Get data from my Gdrive
 df = pd.read_csv('drive/MyDrive/asl_landmarks.csv')
@@ -57,7 +57,7 @@ y_onehot = tf.keras.utils.to_categorical(y, num_classes)
 
 # Split
 X_train, X_val, y_train, y_val = train_test_split(
-    X_proc, y_onehot, test_size=0.1, random_state=RANDOM_SEED, stratify=y
+    X_proc, y_onehot, test_size=0.1, random_state=random_seed, stratify=y
 )
 
 
