@@ -16,7 +16,7 @@ import tensorflow as tf
 from tensorflow.keras import layers, models, callbacks
 
 # Variable data
-EPOCHS = 50
+epochs = 50
 BATCH_SIZE = 64
 MODEL_SAVE_PATH = "asl_cnn_model_29cls_rel"
 random_seed = 42
@@ -116,7 +116,7 @@ cbs = [
 history = model.fit(
     X_train, y_train,
     validation_data=(X_val, y_val),
-    epochs=EPOCHS,
+    epochs=epochs,
     batch_size=BATCH_SIZE,
     callbacks=cbs,
     verbose=1
