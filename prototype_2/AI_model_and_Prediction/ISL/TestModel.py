@@ -9,16 +9,16 @@ import subprocess
 from spellchecker import SpellChecker
 import os
 
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+base_dir = os.path.dirname(os.path.abspath(__file__))
 spell = SpellChecker()
 current_word = ""
 
 model = tf.keras.models.load_model("/Users/aryankrishnan/ProjectHearthstone/prototype_2/AI_model_and_Prediction/ISL/isl_cnn_model.keras")
 
 # class_names pulled from Data folder subdirectories (A, B, C... one per category)
-# NOTE: adjust DATA_DIR_FOR_LABELS if your training Data/ folder isn't next to this script
-DATA_DIR_FOR_LABELS = "/Users/aryankrishnan/ProjectHearthstone/prototype_2/AI_model_and_Prediction/ISL/Data"
-class_names = sorted(os.listdir(DATA_DIR_FOR_LABELS))
+# NOTE: adjust data_dir_for_labels if your training Data/ folder isn't next to this script
+data_dir_for_labels = "/Users/aryankrishnan/ProjectHearthstone/prototype_2/AI_model_and_Prediction/ISL/Data"
+class_names = sorted(os.listdir(data_dir_for_labels))
 
 
 def auto_correct(word):
@@ -28,7 +28,7 @@ def auto_correct(word):
     return corrected if corrected else word
 
 
-lastspoken = None
+last_spoken = None
 label_lock = threading.Lock()
 landmark_queue = queue.Queue(maxsize=5)
 
@@ -67,15 +67,15 @@ def process_label(label):
         current_word += label.lower()
 
 
-BaseOptions = mp.tasks.BaseOptions
-HandLandmarker = mp.tasks.vision.HandLandmarker
-HandLandmarkerOptions = mp.tasks.vision.HandLandmarkerOptions
-VisionRunningMode = mp.tasks.vision.RunningMode
+base_options = mp.tasks.base_options
+hand_landmarker = mp.tasks.vision.hand_landmarker
+hand_landmarker_options = mp.tasks.vision.hand_landmarker_options
+vision_running_mode = mp.tasks.vision.RunningMode
 
-MODEL_PATH = "/Users/aryankrishnan/ProjectHearthstone/prototype_2/hand_landmarker.task"
+model_path = "/Users/aryankrishnan/ProjectHearthstone/prototype_2/hand_landmarker.task"
 
-WRIST = 0
-MIDDLE_MCP = 9
+wrist = 0
+middle_mcp = 9
 
 
 def normalize_two_hands(result):
@@ -100,8 +100,8 @@ def normalize_two_hands(result):
         return None
 
     out = np.zeros((2, 21, 3), dtype=np.float32)
-    origin = primary[WRIST].copy()
-    scale = np.linalg.norm(primary[MIDDLE_MCP] - primary[WRIST])
+    origin = primary[wrist].copy()
+    scale = np.linalg.norm(primary[middle_mcp] - primary[wrist])
     scale = scale if scale > 1e-6 else 1e-6
 
     out[0] = (primary - origin) / scale
@@ -123,14 +123,14 @@ def hand_callback(result, output_image, timestamp_ms):
         pass
 
 
-options = HandLandmarkerOptions(
-    base_options=BaseOptions(model_asset_path=MODEL_PATH),
-    running_mode=VisionRunningMode.LIVE_STREAM,
+options = hand_landmarker_options(
+    base_options=base_options(model_asset_path=model_path),
+    running_mode=vision_running_mode.LIVE_STREAM,
     num_hands=2,
     result_callback=hand_callback,
 )
 
-landmarker = HandLandmarker.create_from_options(options)
+landmarker = hand_landmarker.create_from_options(options)
 
 cam = cv2.VideoCapture(0)
 timestamp_ms = 0
@@ -163,15 +163,15 @@ while cam.isOpened():
                 and labelbuffer[single_lower_limit_index]
                 != labelbuffer[single_lower_limit_index - 1]
             ):
-                if lastspoken != labelbuffer[double_letter_frames]:
+                if last_spoken != labelbuffer[double_letter_frames]:
                     process_label(stablelabel)
-                    lastspoken = stablelabel
+                    last_spoken = stablelabel
             elif (
                 len(set(labelbuffer[1:upper_limit_index])) == 1
                 and labelbuffer[1] != labelbuffer[0]
             ):
                 process_label(stablelabel)
-                lastspoken = stablelabel
+                last_spoken = stablelabel
     except queue.Empty:
         pass
     cv2.putText(

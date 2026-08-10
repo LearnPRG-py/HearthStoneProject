@@ -6,11 +6,11 @@ import mediapipe as mp
 imagesSinceInitialization = 0
 perCategoryTarget = 2400
 
-BaseOptions = mp.tasks.BaseOptions
-HandLandmarker = mp.tasks.vision.HandLandmarker
-HandLandmarkerOptions = mp.tasks.vision.HandLandmarkerOptions
-VisionRunningMode = mp.tasks.vision.RunningMode
-MODEL_PATH = "hand_landmarker.task"
+base_options = mp.tasks.base_options
+hand_landmarker = mp.tasks.vision.hand_landmarker
+hand_landmarker_options = mp.tasks.vision.hand_landmarker_options
+vision_running_mode = mp.tasks.vision.RunningMode
+model_path = "hand_landmarker.task"
 
 letterhash = {chr(i + 65): i for i in range(26)}
 
@@ -149,14 +149,14 @@ def hand_landmarks_callback(result, output_image, timestamp_ms):
     print(f"Captured frame {imagesSinceInitialization}")
 
 
-options = HandLandmarkerOptions(
-    base_options=BaseOptions(model_asset_path=MODEL_PATH),
-    running_mode=VisionRunningMode.LIVE_STREAM,
+options = hand_landmarker_options(
+    base_options=base_options(model_asset_path=model_path),
+    running_mode=vision_running_mode.LIVE_STREAM,
     num_hands=1,
     result_callback=hand_landmarks_callback,
 )
 
-landmarker = HandLandmarker.create_from_options(options)
+landmarker = hand_landmarker.create_from_options(options)
 
 
 def main():

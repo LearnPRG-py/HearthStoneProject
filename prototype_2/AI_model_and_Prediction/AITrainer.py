@@ -17,8 +17,8 @@ from tensorflow.keras import layers, models, callbacks
 
 # Variable data
 epochs = 50
-BATCH_SIZE = 64
-MODEL_SAVE_PATH = "asl_cnn_model_29cls_rel"
+batch_size = 64
+model_save_path = "asl_cnn_model_29cls_rel"
 random_seed = 42
 first_person = True
 np.random.seed(random_seed)
@@ -109,7 +109,7 @@ model.compile(
 cbs = [
     callbacks.ReduceLROnPlateau(monitor='val_loss', factor=0.5, patience=4, verbose=1),
     callbacks.EarlyStopping(monitor='val_loss', patience=8, restore_best_weights=True),
-    callbacks.ModelCheckpoint(MODEL_SAVE_PATH, monitor='val_accuracy', save_best_only=True, verbose=1)
+    callbacks.ModelCheckpoint(model_save_path, monitor='val_accuracy', save_best_only=True, verbose=1)
 ]
 
 # Training
@@ -117,12 +117,12 @@ history = model.fit(
     X_train, y_train,
     validation_data=(X_val, y_val),
     epochs=epochs,
-    batch_size=BATCH_SIZE,
+    batch_size=batch_size,
     callbacks=cbs,
     verbose=1
 )
 
 # Final model save
-model.save(MODEL_SAVE_PATH)
-print(f"Model saved to {MODEL_SAVE_PATH}")
+model.save(model_save_path)
+print(f"Model saved to {model_save_path}")
 
