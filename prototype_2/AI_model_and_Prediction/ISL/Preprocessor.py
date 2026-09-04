@@ -45,7 +45,9 @@ def extract_and_normalize(result):
     right = hands["Right"]
 
     # prefer left as origin hand if present, else fall back to right
-    primary_label = "Left" if left is not None else ("Right" if right is not None else None)
+    primary_label = (
+        "Left" if left is not None else ("Right" if right is not None else None)
+    )
     primary = left if left is not None else right
     secondary = right if left is not None else left
 
@@ -106,7 +108,9 @@ def main():
     done_paths = load_done_paths()
     remaining = [(c, p) for c, p in image_paths if p not in done_paths]
 
-    print(f"Found {len(image_paths)} images, {len(done_paths)} already done, {len(remaining)} remaining")
+    print(
+        f"Found {len(image_paths)} images, {len(done_paths)} already done, {len(remaining)} remaining"
+    )
 
     if not remaining:
         print("Nothing left to process.")
@@ -115,11 +119,15 @@ def main():
     write_header = not os.path.exists(output_csv)
 
     try:
-        hand_lm = hand_landmarker.create_from_options(make_options(base_options.Delegate.GPU))
+        hand_lm = hand_landmarker.create_from_options(
+            make_options(base_options.Delegate.GPU)
+        )
         print("Running on GPU")
     except Exception as e:
         print(f"GPU failed ({e}), falling back to CPU")
-        hand_lm = hand_landmarker.create_from_options(make_options(base_options.Delegate.CPU))
+        hand_lm = hand_landmarker.create_from_options(
+            make_options(base_options.Delegate.CPU)
+        )
 
     with open(output_csv, "a", newline="") as f:
         writer = csv.writer(f)

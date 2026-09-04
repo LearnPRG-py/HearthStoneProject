@@ -24,10 +24,35 @@ model = tf.keras.models.load_model(
 )
 
 class_names = [
-    "A", "B", "C", "D", "E", "F", "G", "H", "I", "J",
-    "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T",
-    "U", "V", "W", "X", "Y", "Z",
-    "del", "nothing", "space",
+    "A",
+    "B",
+    "C",
+    "D",
+    "E",
+    "F",
+    "G",
+    "H",
+    "I",
+    "J",
+    "K",
+    "L",
+    "M",
+    "N",
+    "O",
+    "P",
+    "Q",
+    "R",
+    "S",
+    "T",
+    "U",
+    "V",
+    "W",
+    "X",
+    "Y",
+    "Z",
+    "del",
+    "nothing",
+    "space",
 ]
 
 
@@ -57,6 +82,7 @@ def speak(text):
         subprocess.Popen(["say", text])
     elif system == "Windows":
         import comtypes.client
+
         speaker = comtypes.client.CreateObject("SAPI.SpVoice")
         speaker.Speak(text)
     else:
@@ -97,8 +123,8 @@ def hand_callback(result, output_image, timestamp_ms):
     # to the second-person (facing) perspective the model was trained on.
     # X flip: corrects left/right mirror inversion
     # Z flip: corrects depth direction inversion
-    pts[:, 0] *= -1   # mirror left/right (X)
-    pts[:, 2] *= -1   # flip depth (Z)
+    pts[:, 0] *= -1  # mirror left/right (X)
+    pts[:, 2] *= -1  # flip depth (Z)
 
     pts = pts[1:]
     scale = np.max(np.linalg.norm(pts, axis=1))

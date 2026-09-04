@@ -25,11 +25,11 @@ np.random.seed(random_seed)
 tf.random.set_seed(random_seed)
 
 # Get data from my Gdrive
-df = pd.read_csv('drive/MyDrive/asl_landmarks.csv')
-print("Classes found:", sorted(df['label'].unique()))
+df = pd.read_csv("drive/MyDrive/asl_landmarks.csv")
+print("Classes found:", sorted(df["label"].unique()))
 
-labels = df['label'].astype(str)
-X = df.drop(columns=['label']).values.astype(np.float32)
+labels = df["label"].astype(str)
+X = df.drop(columns=["label"]).values.astype(np.float32)
 
 num_landmarks = 21
 coords_per_landmark = 3
@@ -42,15 +42,16 @@ y = labels.map(label_map).values
 # Data-Preprocessing
 def preprocess_sample(sample):
     pts = sample.reshape(num_landmarks, coords_per_landmark)
-    ref = pts[0]                        # wrist anchor
-    pts -= ref                          # make all points relative to wrist
-    pts = pts[1:]                       # optionally remove wrist itself
+    ref = pts[0]  # wrist anchor
+    pts -= ref  # make all points relative to wrist
+    pts = pts[1:]  # optionally remove wrist itself
     if first_person:
-        pts[:, 0] *= -1                     # flip X axis for first-person / depth inversion
-        pts[:, 2] *= -1                     # flip Z axis for depth inversion
+        pts[:, 0] *= -1  # flip X axis for first-person / depth inversion
+        pts[:, 2] *= -1  # flip Z axis for depth inversion
     scale = np.max(np.linalg.norm(pts, axis=1))
-    pts /= (scale + 1e-6)               # normalize scale
+    pts /= scale + 1e-6  # normalize scale
     return pts
+
 
 X_proc = np.stack([preprocess_sample(s) for s in X])
 y_onehot = tf.keras.utils.to_categorical(y, num_classes)
@@ -62,24 +63,26 @@ X_train, X_val, y_train, y_val = train_test_split(
 
 
 def conv_block(x, filters, kernel_size=3, drop=0.2):
-    y = layers.Conv1D(filters, kernel_size, padding='same', use_bias=False)(x)
+    y = layers.Conv1D(filters, kernel_size, padding="same", use_bias=False)(x)
     y = layers.BatchNormalization()(y)
-    y = layers.Activation('relu')(y)
+    y = layers.Activation("relu")(y)
     y = layers.Dropout(drop)(y)
     return y
+
 
 def residual_block(x, filters, kernel_size=3, drop=0.2):
     shortcut = x
     y = conv_block(x, filters, kernel_size, drop)
-    y = layers.Conv1D(filters, kernel_size, padding='same', use_bias=False)(y)
+    y = layers.Conv1D(filters, kernel_size, padding="same", use_bias=False)(y)
     y = layers.BatchNormalization()(y)
     if shortcut.shape[-1] != filters:
-        shortcut = layers.Conv1D(filters, 1, padding='same', use_bias=False)(shortcut)
+        shortcut = layers.Conv1D(filters, 1, padding="same", use_bias=False)(shortcut)
         shortcut = layers.BatchNormalization()(shortcut)
     y = layers.Add()([shortcut, y])
-    y = layers.Activation('relu')(y)
+    y = layers.Activation("relu")(y)
     y = layers.Dropout(drop)(y)
     return y
+
 
 def build_thicc_cnn(input_shape=(20, 3), num_classes=29, dropout=0.3):
     inp = layers.Input(shape=input_shape)
@@ -91,10 +94,11 @@ def build_thicc_cnn(input_shape=(20, 3), num_classes=29, dropout=0.3):
     x = layers.GlobalAveragePooling1D()(x)
     x = layers.Dense(512, use_bias=False)(x)
     x = layers.BatchNormalization()(x)
-    x = layers.Activation('relu')(x)
+    x = layers.Activation("relu")(x)
     x = layers.Dropout(dropout)(x)
-    out = layers.Dense(num_classes, activation='softmax')(x)
+    out = layers.Dense(num_classes, activation="softmax")(x)
     return models.Model(inp, out)
+
 
 model = build_thicc_cnn((20, 3), num_classes)
 
@@ -102,27 +106,29 @@ model = build_thicc_cnn((20, 3), num_classes)
 model.compile(
     optimizer=tf.keras.optimizers.Adam(1e-3),
     loss=tf.keras.losses.CategoricalCrossentropy(label_smoothing=0.05),
-    metrics=['accuracy']
+    metrics=["accuracy"],
 )
 
 # Callbacks for optimal training
 cbs = [
-    callbacks.ReduceLROnPlateau(monitor='val_loss', factor=0.5, patience=4, verbose=1),
-    callbacks.EarlyStopping(monitor='val_loss', patience=8, restore_best_weights=True),
-    callbacks.ModelCheckpoint(model_save_path, monitor='val_accuracy', save_best_only=True, verbose=1)
+    callbacks.ReduceLROnPlateau(monitor="val_loss", factor=0.5, patience=4, verbose=1),
+    callbacks.EarlyStopping(monitor="val_loss", patience=8, restore_best_weights=True),
+    callbacks.ModelCheckpoint(
+        model_save_path, monitor="val_accuracy", save_best_only=True, verbose=1
+    ),
 ]
 
 # Training
 history = model.fit(
-    X_train, y_train,
+    X_train,
+    y_train,
     validation_data=(X_val, y_val),
     epochs=epochs,
     batch_size=batch_size,
     callbacks=cbs,
-    verbose=1
+    verbose=1,
 )
 
 # Final model save
 model.save(model_save_path)
 print(f"Model saved to {model_save_path}")
-

@@ -13,7 +13,9 @@ base_dir = os.path.dirname(os.path.abspath(__file__))
 spell = SpellChecker()
 current_word = ""
 
-model = tf.keras.models.load_model("/Users/aryankrishnan/ProjectHearthstone/prototype_2/AI_model_and_Prediction/ISL/isl_cnn_model.keras")
+model = tf.keras.models.load_model(
+    "/Users/aryankrishnan/ProjectHearthstone/prototype_2/AI_model_and_Prediction/ISL/isl_cnn_model.keras"
+)
 
 # class_names pulled from Data folder subdirectories (A, B, C... one per category)
 # NOTE: adjust data_dir_for_labels if your training Data/ folder isn't next to this script
@@ -87,7 +89,9 @@ def normalize_two_hands(result):
     hands = {"Left": None, "Right": None}
     for i, handedness in enumerate(result.handedness):
         label = handedness[0].category_name
-        pts = np.array([[p.x, p.y, p.z] for p in result.hand_landmarks[i]], dtype=np.float32)
+        pts = np.array(
+            [[p.x, p.y, p.z] for p in result.hand_landmarks[i]], dtype=np.float32
+        )
         hands[label] = pts
 
     left = hands["Left"]
