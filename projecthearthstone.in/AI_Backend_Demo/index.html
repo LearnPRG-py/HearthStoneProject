@@ -13,7 +13,21 @@
 
     <div id="output">—</div>
     <div id="transcript"></div>
-    <button id="speak" onclick="speakTranscript()">🔊</button>
+
+    <div id="controls">
+      <label>
+        Letter hold (frames)
+        <input type="range" id="firstLetterFrames" min="1" max="30" value="5" />
+        <span id="firstLetterFramesVal">5</span>
+      </label>
+      <label>
+        Double-letter gap (frames)
+        <input type="range" id="doubleLetterFrames" min="5" max="120" value="60" />
+        <span id="doubleLetterFramesVal">60</span>
+      </label>
+      <button id="speak" type="button" onclick="speakTranscript()">🔊 Speak</button>
+      <button id="clear" type="button">Clear</button>
+    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.15.0/dist/tf.min.js"></script>
     <script

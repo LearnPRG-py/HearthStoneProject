@@ -1,7 +1,7 @@
 const MODEL_URL = "model.json";
 
-const FIRST_LETTER_FRAMES = 5;
-const DOUBLE_LETTER_FRAMES = 60;
+let firstLetterFrames = 5;
+let doubleLetterFrames = 60;
 
 const CLASS_NAMES = [
   "A",
@@ -81,17 +81,24 @@ async function predict(pts) {
   });
 }
 
-const singleLowerIdx = DOUBLE_LETTER_FRAMES - FIRST_LETTER_FRAMES;
-const upperIdx = DOUBLE_LETTER_FRAMES + 1;
+function detectionIndices() {
+  const double = Math.max(doubleLetterFrames, firstLetterFrames + 1);
+  return {
+    singleLowerIdx: double - firstLetterFrames,
+    doubleIdx: double,
+    upperIdx: double + 1,
+  };
+}
 
 function processLabel(label) {
+  const { singleLowerIdx, doubleIdx, upperIdx } = detectionIndices();
   labelBuffer.push(label);
   if (labelBuffer.length > upperIdx) labelBuffer.shift();
   if (labelBuffer.length < upperIdx) return;
 
   const tailUnique = new Set(labelBuffer.slice(singleLowerIdx)).size === 1;
   const fullUnique = new Set(labelBuffer.slice(1)).size === 1;
-  const detectedLabel = labelBuffer[DOUBLE_LETTER_FRAMES];
+  const detectedLabel = labelBuffer[doubleIdx];
 
   if (
     tailUnique &&
@@ -163,6 +170,31 @@ hands.onResults(async (results) => {
   } else {
     outputEl.textContent = "—";
   }
+});
+
+const firstLetterFramesInput = document.getElementById("firstLetterFrames");
+const firstLetterFramesVal = document.getElementById("firstLetterFramesVal");
+const doubleLetterFramesInput = document.getElementById("doubleLetterFrames");
+const doubleLetterFramesVal = document.getElementById("doubleLetterFramesVal");
+const clearBtn = document.getElementById("clear");
+
+function syncParams() {
+  firstLetterFrames = Number(firstLetterFramesInput.value);
+  doubleLetterFrames = Number(doubleLetterFramesInput.value);
+  firstLetterFramesVal.textContent = firstLetterFrames;
+  doubleLetterFramesVal.textContent = doubleLetterFrames;
+  labelBuffer = [];
+  lastSpoken = null;
+}
+
+firstLetterFramesInput.addEventListener("input", syncParams);
+doubleLetterFramesInput.addEventListener("input", syncParams);
+syncParams();
+
+clearBtn.addEventListener("click", () => {
+  transcriptEl.textContent = "";
+  labelBuffer = [];
+  lastSpoken = null;
 });
 
 let isProcessing = false;
