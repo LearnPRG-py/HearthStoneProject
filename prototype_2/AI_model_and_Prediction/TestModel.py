@@ -9,14 +9,14 @@ import subprocess
 from spellchecker import SpellChecker
 import os
 
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+base_dir = os.path.dirname(os.path.abspath(__file__))
 spell = SpellChecker()
 current_word = ""
 first_person = True
 
 model = tf.keras.models.load_model(
     os.path.join(
-        BASE_DIR,
+        base_dir,
         "../AI_model_and_Prediction/hearthstone_fingerspelling_AI"
         + ("_firstperson" if first_person else "_thirdperson")
         + ".keras",
@@ -39,7 +39,7 @@ def auto_correct(word):
     return corrected if corrected else word
 
 
-lastspoken = None
+last_spoken = None
 label_lock = threading.Lock()
 landmark_queue = queue.Queue(maxsize=5)
 
@@ -77,12 +77,12 @@ def process_label(label):
         current_word += label.lower()
 
 
-BaseOptions = mp.tasks.BaseOptions
-HandLandmarker = mp.tasks.vision.HandLandmarker
-HandLandmarkerOptions = mp.tasks.vision.HandLandmarkerOptions
-VisionRunningMode = mp.tasks.vision.RunningMode
+base_options = mp.tasks.base_options
+hand_landmarker = mp.tasks.vision.hand_landmarker
+hand_landmarker_options = mp.tasks.vision.hand_landmarker_options
+vision_running_mode = mp.tasks.vision.RunningMode
 
-MODEL_PATH = os.path.join(BASE_DIR, "../hand_landmarker.task")
+model_path = os.path.join(base_dir, "../hand_landmarker.task")
 
 
 def hand_callback(result, output_image, timestamp_ms):
@@ -109,14 +109,14 @@ def hand_callback(result, output_image, timestamp_ms):
         pass
 
 
-options = HandLandmarkerOptions(
-    base_options=BaseOptions(model_asset_path=MODEL_PATH),
-    running_mode=VisionRunningMode.LIVE_STREAM,
+options = hand_landmarker_options(
+    base_options=base_options(model_asset_path=model_path),
+    running_mode=vision_running_mode.LIVE_STREAM,
     num_hands=1,
     result_callback=hand_callback,
 )
 
-landmarker = HandLandmarker.create_from_options(options)
+landmarker = hand_landmarker.create_from_options(options)
 
 cam = cv2.VideoCapture(1)
 timestamp_ms = 0
@@ -149,16 +149,16 @@ while cam.isOpened():
                 and labelbuffer[single_lower_limit_index]
                 != labelbuffer[single_lower_limit_index - 1]
             ):
-                if lastspoken != labelbuffer[double_letter_frames]:
+                if last_spoken != labelbuffer[double_letter_frames]:
                     process_label(stablelabel)
-                    lastspoken = stablelabel
+                    last_spoken = stablelabel
             elif (
                 len(set(labelbuffer[1:upper_limit_index])) == 1
                 and labelbuffer[1] != labelbuffer[0]
             ):
                 # allow a duplicate letter here
                 process_label(stablelabel)
-                lastspoken = stablelabel
+                last_spoken = stablelabel
     except queue.Empty:
         pass
 

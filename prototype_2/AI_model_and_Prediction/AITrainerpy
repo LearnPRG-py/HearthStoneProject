@@ -16,13 +16,13 @@ import tensorflow as tf
 from tensorflow.keras import layers, models, callbacks
 
 # Variable data
-EPOCHS = 50
-BATCH_SIZE = 64
-MODEL_SAVE_PATH = "asl_cnn_model_29cls_rel"
-RANDOM_SEED = 42
+epochs = 50
+batch_size = 64
+model_save_path = "asl_cnn_model_29cls_rel"
+random_seed = 42
 first_person = True
-np.random.seed(RANDOM_SEED)
-tf.random.set_seed(RANDOM_SEED)
+np.random.seed(random_seed)
+tf.random.set_seed(random_seed)
 
 # Get data from my Gdrive
 df = pd.read_csv('drive/MyDrive/asl_landmarks.csv')
@@ -57,7 +57,7 @@ y_onehot = tf.keras.utils.to_categorical(y, num_classes)
 
 # Split
 X_train, X_val, y_train, y_val = train_test_split(
-    X_proc, y_onehot, test_size=0.1, random_state=RANDOM_SEED, stratify=y
+    X_proc, y_onehot, test_size=0.1, random_state=random_seed, stratify=y
 )
 
 
@@ -109,20 +109,20 @@ model.compile(
 cbs = [
     callbacks.ReduceLROnPlateau(monitor='val_loss', factor=0.5, patience=4, verbose=1),
     callbacks.EarlyStopping(monitor='val_loss', patience=8, restore_best_weights=True),
-    callbacks.ModelCheckpoint(MODEL_SAVE_PATH, monitor='val_accuracy', save_best_only=True, verbose=1)
+    callbacks.ModelCheckpoint(model_save_path, monitor='val_accuracy', save_best_only=True, verbose=1)
 ]
 
 # Training
 history = model.fit(
     X_train, y_train,
     validation_data=(X_val, y_val),
-    epochs=EPOCHS,
-    batch_size=BATCH_SIZE,
+    epochs=epochs,
+    batch_size=batch_size,
     callbacks=cbs,
     verbose=1
 )
 
 # Final model save
-model.save(MODEL_SAVE_PATH)
-print(f"Model saved to {MODEL_SAVE_PATH}")
+model.save(model_save_path)
+print(f"Model saved to {model_save_path}")
 

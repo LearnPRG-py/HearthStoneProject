@@ -8,23 +8,23 @@ from tqdm import tqdm
 os.environ["GLOG_minloglevel"] = "3"
 os.environ["TF_CPP_MIN_LOG_LEVEL"] = "3"
 
-DATA_DIR = "Data"
-OUTPUT_CSV = "isl_landmarks.csv"
-HAND_MODEL = "/Users/aryankrishnan/ProjectHearthstone/prototype_2/hand_landmarker.task"
+data_dir = "Data"
+output_csv = "isl_landmarks.csv"
+hand_model = "/Users/aryankrishnan/ProjectHearthstone/prototype_2/hand_landmarker.task"
 
-BaseOptions = mp.tasks.BaseOptions
-HandLandmarker = mp.tasks.vision.HandLandmarker
-HandLandmarkerOptions = mp.tasks.vision.HandLandmarkerOptions
-VisionRunningMode = mp.tasks.vision.RunningMode
+base_options = mp.tasks.base_options
+hand_landmarker = mp.tasks.vision.hand_landmarker
+hand_landmarker_options = mp.tasks.vision.hand_landmarker_options
+vision_running_mode = mp.tasks.vision.RunningMode
 
-WRIST = 0
-MIDDLE_MCP = 9
+wrist = 0
+middle_mcp = 9
 
 
 def make_options(delegate):
-    return HandLandmarkerOptions(
-        base_options=BaseOptions(model_asset_path=HAND_MODEL, delegate=delegate),
-        running_mode=VisionRunningMode.IMAGE,
+    return hand_landmarker_options(
+        base_options=base_options(model_asset_path=hand_model, delegate=delegate),
+        running_mode=vision_running_mode.IMAGE,
         num_hands=2,
         min_hand_detection_confidence=0.5,
         min_tracking_confidence=0.5,
@@ -53,8 +53,8 @@ def extract_and_normalize(result):
         return None, None
 
     out = np.zeros((2, 21, 3), dtype=np.float32)
-    origin = primary[WRIST].copy()
-    scale = np.linalg.norm(primary[MIDDLE_MCP] - primary[WRIST])
+    origin = primary[wrist].copy()
+    scale = np.linalg.norm(primary[middle_mcp] - primary[wrist])
     scale = scale if scale > 1e-6 else 1e-6
 
     out[0] = (primary - origin) / scale
@@ -82,8 +82,8 @@ def process_image(path, hand_lm):
 
 def load_done_paths():
     done = set()
-    if os.path.exists(OUTPUT_CSV):
-        with open(OUTPUT_CSV, "r", newline="") as f:
+    if os.path.exists(output_csv):
+        with open(output_csv, "r", newline="") as f:
             reader = csv.reader(f)
             next(reader, None)  # header
             for row in reader:
@@ -94,8 +94,8 @@ def load_done_paths():
 
 def main():
     image_paths = []
-    for root, _, files in os.walk(DATA_DIR):
-        if root == DATA_DIR:
+    for root, _, files in os.walk(data_dir):
+        if root == data_dir:
             continue
         category = os.path.basename(root)
         for f in files:
@@ -112,16 +112,16 @@ def main():
         print("Nothing left to process.")
         return
 
-    write_header = not os.path.exists(OUTPUT_CSV)
+    write_header = not os.path.exists(output_csv)
 
     try:
-        hand_lm = HandLandmarker.create_from_options(make_options(BaseOptions.Delegate.GPU))
+        hand_lm = hand_landmarker.create_from_options(make_options(base_options.Delegate.GPU))
         print("Running on GPU")
     except Exception as e:
         print(f"GPU failed ({e}), falling back to CPU")
-        hand_lm = HandLandmarker.create_from_options(make_options(BaseOptions.Delegate.CPU))
+        hand_lm = hand_landmarker.create_from_options(make_options(base_options.Delegate.CPU))
 
-    with open(OUTPUT_CSV, "a", newline="") as f:
+    with open(output_csv, "a", newline="") as f:
         writer = csv.writer(f)
         if write_header:
             writer.writerow(["Path", "Category", "PrimaryHand", "landmarks"])

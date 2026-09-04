@@ -2,12 +2,12 @@ import cv2
 import mediapipe as mp
 import threading
 
-BaseOptions = mp.tasks.BaseOptions
-HandLandmarker = mp.tasks.vision.HandLandmarker
-HandLandmarkerOptions = mp.tasks.vision.HandLandmarkerOptions
-VisionRunningMode = mp.tasks.vision.RunningMode
+base_options = mp.tasks.base_options
+hand_landmarker = mp.tasks.vision.hand_landmarker
+hand_landmarker_options = mp.tasks.vision.hand_landmarker_options
+vision_running_mode = mp.tasks.vision.RunningMode
 
-MODEL_PATH = "../hand_landmarker.task"
+model_path = "../hand_landmarker.task"
 
 current_landmarks = None
 current_landmarks_lock = threading.Lock()
@@ -22,14 +22,14 @@ def hand_callback(result, output_image, timestamp_ms):
             current_landmarks = None
 
 
-options = HandLandmarkerOptions(
-    base_options=BaseOptions(model_asset_path=MODEL_PATH),
-    running_mode=VisionRunningMode.LIVE_STREAM,
+options = hand_landmarker_options(
+    base_options=base_options(model_asset_path=model_path),
+    running_mode=vision_running_mode.LIVE_STREAM,
     num_hands=2,
     result_callback=hand_callback,
 )
 
-landmarker = HandLandmarker.create_from_options(options)
+landmarker = hand_landmarker.create_from_options(options)
 
 cam = cv2.VideoCapture(0)
 timestamp_ms = 0
